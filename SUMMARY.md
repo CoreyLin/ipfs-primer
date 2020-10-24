@@ -1,65 +1,57 @@
-# Summary
+# Table of contents
 
-* [Tutorial: Install and Initialize IPFS](/install-ipfs/README.md)
-  * [Lesson: Download and Install IPFS](/install-ipfs/lessons/download-and-install.md)
-  * [Lesson: Initialize your IPFS Repository](/install-ipfs/lessons/initialize-repository.md)
-
-* [Tutorial: Files on IPFS](/files-on-ipfs/README.md)
-  * [Lesson: Add Content to IPFS and Retrieve It](/files-on-ipfs/lessons/add-and-retrieve-file-content.md)
-  * [Lesson: Wrap Filenames and Directory Info around Content](/files-on-ipfs/lessons/wrap-directories-around-content.md)
-  * [Lesson: Pinning - Tell IPFS to Keep a File](/files-on-ipfs/lessons/pin-files.md)
-
-* [Tutorial: Going Online - Joining the Distributed Web](/going-online/README.md)
-  * [Lesson: Connect your node to the IPFS network](/going-online/lessons/connect-your-node.md)
-  * [Lesson: Find Peers on the Network](/going-online/lessons/find-peers.md)
-  * [Lesson: Retrieve content from a Peer](/going-online/lessons/retrieve-from-peer.md)
-
-* [Tutorial: Interacting with the Classical (HTTP) Web](/classical-web/README.md)
-  * [Lesson: Use an HTTP browser to retrieve files from local IPFS gateway](/classical-web/lessons/local-gateway.md)
-  * [Lesson: Get content through the public ipfs.io gateway](/classical-web/lessons/public-gateways.md)
-  * [Lesson: Access IPFS content through any IPFS gateway](/classical-web/lessons/other-gateways.md)
-
-* [Tutorial: The Myriad ways to Access and Distribute IPFS Content](/avenues-for-access/README.md)
-  * [The Power of Content-addressing](/avenues-for-access/lessons/power-of-content-addressing.md)
-  * [Retrieving content from a peer](/going-online/lessons/retrieve-from-peer.md)
-  * Review these lessons from the Tutorial on Interacting with the Classical (HTTP) Web
-    * [Review: Using an HTTP browser to retrieve files from local IPFS gateway](/classical-web/lessons/local-gateway.md)
-    * [Review: Using the public IPFS gateways at ipfs.io](/classical-web/lessons/public-gateways.md)
-    * [Review: Access IPFS content through any IPFS gateway](/aclassical-web/lessons/other-gateways.md)
-  * [Lesson: Access IPFS content through Tor gateways (experimental)](/avenues-for-access/lessons/tor-gateways.md)
-  * [Lesson: Run IPFS over Tor transport (experimental)](/avenues-for-access/lessons/tor-transport.md)
-  * [Lesson: Access IPFS content through a browser extension](/avenues-for-access/lessons/browser-extension.md)
-  * [Lesson: Sneakernets - moving the data on USB Drives and other Hardware](/avenues-for-access/lessons/sneakernets.md)
-
+* [介绍](README.md)
+* [Tutorial: Install and Initialize IPFS](install-ipfs/README.md)
+  * [Lesson: Download and Install IPFS](install-ipfs/download-and-install.md)
+  * [Lesson: Initialize your IPFS Repository](install-ipfs/initialize-repository.md)
+* [Tutorial: Files on IPFS](files-on-ipfs/README.md)
+  * [Lesson: Add Content to IPFS and Retrieve It](files-on-ipfs/add-and-retrieve-file-content.md)
+  * [Lesson: Wrap Filenames and Directory Info around Content](files-on-ipfs/wrap-directories-around-content.md)
+  * [Lesson: Pinning - Tell IPFS to Keep a File](files-on-ipfs/pin-files.md)
+* [Tutorial: Going Online - Joining the Distributed Web](going-online/README.md)
+  * [Lesson: Connect your node to the IPFS network](going-online/connect-your-node.md)
+  * [Lesson: Find Peers on the Network](going-online/find-peers.md)
+  * [Lesson: Retrieve content from a Peer](going-online/retrieve-from-peer.md)
+* [Tutorial: Interacting with the Classical \(HTTP\) Web](classical-web/README.md)
+  * [Lesson: Use an HTTP browser to retrieve files from local IPFS gateway](classical-web/local-gateway.md)
+  * [Lesson: Get content through the public ipfs.io gateway](classical-web/public-gateways.md)
+  * [Lesson: Access IPFS content through any IPFS gateway](classical-web/other-gateways.md)
+* [Tutorial: The Myriad ways to Access and Distribute IPFS Content](avenues-for-access/README.md)
+  * [The Power of Content-addressing](avenues-for-access/power-of-content-addressing.md)
+  * [Retrieving content from a peer](avenues-for-access/retrieve-from-peer.md)
+  * [Review these lessons from the Tutorial on Interacting with the Classical \(HTTP\) Web](avenues-for-access/review-these-lessons-from-the-tutorial-on-interacting-with-the-classical-http-web/README.md)
+    * [Review: Using an HTTP browser to retrieve files from local IPFS gateway](avenues-for-access/review-these-lessons-from-the-tutorial-on-interacting-with-the-classical-http-web/local-gateway.md)
+    * [Review: Using the public IPFS gateways at ipfs.io](avenues-for-access/review-these-lessons-from-the-tutorial-on-interacting-with-the-classical-http-web/public-gateways.md)
+    * [Review: Access IPFS content through any IPFS gateway](avenues-for-access/review-these-lessons-from-the-tutorial-on-interacting-with-the-classical-http-web/review-access-ipfs-content-through-any-ipfs-gateway.md)
+  * [Lesson: Access IPFS content through Tor gateways \(experimental\)](avenues-for-access/tor-gateways.md)
+  * [Lesson: Run IPFS over Tor transport \(experimental\)](avenues-for-access/tor-transport.md)
+  * [Lesson: Access IPFS content through a browser extension](avenues-for-access/browser-extension.md)
+  * [Lesson: Sneakernets - moving the data on USB Drives and other Hardware](avenues-for-access/sneakernets.md)
 * [Tutorial: Making Changes on the Permanent Web](publishing-changes/README.md)
-  * [Lesson: Create a Simple Webpage and Add It to IPFS](publishing-changes/lessons/create-webpage.md)
-  * [Lesson: View Your Webpage with IPFS and Publish to IPNS](publishing-changes/lessons/view-and-publish.md)
-  * [Lesson: Modify Your Webpage and Republish to IPNS](publishing-changes/lessons/modify-republish.md)
-  * [Lesson: Generate and Use a New IPNS Name Keypair](publishing-changes/lessons/generate-keypair.md)
-
+  * [Lesson: Create a Simple Webpage and Add It to IPFS](publishing-changes/create-webpage.md)
+  * [Lesson: View Your Webpage with IPFS and Publish to IPNS](publishing-changes/view-and-publish.md)
+  * [Lesson: Modify Your Webpage and Republish to IPNS](publishing-changes/modify-republish.md)
+  * [Lesson: Generate and Use a New IPNS Name Keypair](publishing-changes/generate-keypair.md)
 * [Tutorial: Merkle Trees and the IPFS DAG](ipfs-dag/README.md)
-  * [Lesson: Turn a File into a Tree of Hashes](/ipfs-dag/lessons/files-as-dags.md)
-  * [Lesson: The Cryptographic Hash](/ipfs-dag/lessons/crypto-hash.md)
-  * [Lesson: Build a Tree of Data in IPFS Using Cryptographic Hashes to Link the Pieces (a Merkle DAG)](/ipfs-dag/lessons/blocks-from-scratch.md)
-  * Lesson: Explore the types of software that use hash trees to track data *(to come)*
+  * [Lesson: Turn a File into a Tree of Hashes](ipfs-dag/files-as-dags.md)
+  * [Lesson: The Cryptographic Hash](ipfs-dag/crypto-hash.md)
+  * [Lesson: Build a Tree of Data in IPFS Using Cryptographic Hashes to Link the Pieces \(a Merkle DAG\)](ipfs-dag/blocks-from-scratch.md)
+  * [Lesson: Explore the types of software that use hash trees to track data \(to come\)](ipfs-dag/lesson-explore-the-types-of-software-that-use-hash-trees-to-track-data-to-come.md)
+* [Tutorial: Dynamic Content on IPFS](dynamic-content/README.md)
+  * [Disclaimer: Dynamic content on IPFS is a Work in Progress \(to come\)](dynamic-content/disclaimer-dynamic-content-on-ipfs-is-a-work-in-progress-to-come.md)
+  * [Lesson: Add data to the DAG \(locally\) \(to come\)](dynamic-content/lesson-add-data-to-the-dag-locally-to-come.md)
+  * [Lesson: Tell peers about your Changes \(to come\)](dynamic-content/lesson-tell-peers-about-your-changes-to-come.md)
+  * [Lesson: Use hashes to get someone's changes from IPFS \(to come\)](dynamic-content/lesson-use-hashes-to-get-someones-changes-from-ipfs-to-come.md)
+  * [Lesson: Use a pub/sub strategy to pass around messages about changes \(to come\)](dynamic-content/lesson-use-a-pub-sub-strategy-to-pass-around-messages-about-changes-to-come.md)
+  * [Lesson: Resolve conflicts with a merge strategy \(CRDTs\) \(to come\)](dynamic-content/lesson-resolve-conflicts-with-a-merge-strategy-crdts-to-come.md)
+* [Privacy and Access Controls on the Distributed Web \(to come\)](privacy-and-access-controls-on-the-distributed-web-to-come/README.md)
+  * [Reader Privacy & Writer Privacy \(to come\)](privacy-and-access-controls-on-the-distributed-web-to-come/reader-privacy-and-writer-privacy-to-come.md)
+  * [Private Networks \(to come\)](privacy-and-access-controls-on-the-distributed-web-to-come/private-networks-to-come.md)
+  * [Encrypting Content \(to come\)](privacy-and-access-controls-on-the-distributed-web-to-come/encrypting-content-to-come.md)
+  * [More dynamic encryption: capabilities-based encryption \(to come\)](privacy-and-access-controls-on-the-distributed-web-to-come/more-dynamic-encryption-capabilities-based-encryption-to-come.md)
+  * [Comparing with the classic HTTP web \(feudal security, etc\) \(to come\)](privacy-and-access-controls-on-the-distributed-web-to-come/comparing-with-the-classic-http-web-feudal-security-etc-to-come.md)
+* [Keeping Data Alive: Durable Data on the Permanent Web \(to come\)](keeping-data-alive-durable-data-on-the-permanent-web-to-come/README.md)
+  * [IPFS Cluster \(to come\)](keeping-data-alive-durable-data-on-the-permanent-web-to-come/ipfs-cluster-to-come.md)
+  * [Filecoin \(to come\)](keeping-data-alive-durable-data-on-the-permanent-web-to-come/filecoin-to-come.md)
+* [Distributed Computation \(to come\)](distributed-computation-to-come.md)
 
-* [Tutorial: Dynamic Content on IPFS](/dynamic-content/README.md)
-  * Disclaimer: Dynamic content on IPFS is a Work in Progress *(to come)*
-  * Lesson: Add data to the DAG (locally) *(to come)*
-  * Lesson: Tell peers about your Changes *(to come)*
-  * Lesson: Use hashes to get someone's changes from IPFS *(to come)*
-  * Lesson: Use a pub/sub strategy to pass around messages about changes *(to come)*
-  * Lesson: Resolve conflicts with a merge strategy (CRDTs) *(to come)*
-
-* Privacy and Access Controls on the Distributed Web *(to come)*
-  * Reader Privacy & Writer Privacy *(to come)*
-  * Private Networks *(to come)*
-  * Encrypting Content *(to come)*
-  * More dynamic encryption: capabilities-based encryption *(to come)*
-  * Comparing with the classic HTTP web (feudal security, etc) *(to come)*
-
-* Keeping Data Alive: Durable Data on the Permanent Web *(to come)*
-  * IPFS Cluster *(to come)*
-  * Filecoin *(to come)*
-
-* Distributed Computation *(to come)*
