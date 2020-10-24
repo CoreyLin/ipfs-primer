@@ -1,16 +1,16 @@
 # The IPFS Primer
 
-This primer contains a series of tutorials explaining IPFS, Merkle Trees and the Decentralized Web. It's written and maintained as a [gitbook](https://www.gitbook.com/about) so people can read it in many formats.
+本教程包含一系列教程，解释IPFS、Merkle树和去中心化的Web。它是作为一本[gitbook](https://www.gitbook.com/about)编写和维护的，因此人们可以以多种格式阅读它。
 
-The GitHub repository for this book is at https://github.com/ipfs-shipyard/ipfs-primer.
+本书的GitHub仓库位于 https://github.com/ipfs-shipyard/ipfs-primer 。
 
-# Getting Help
+# 得到帮助
 
-During these tutorials, if you have any questions feel free to ask them in [the IPFS forums](https://discuss.ipfs.io) or in [the #ipfs channel on chat.freenode.net](irc://chat.freenode.net/%23ipfs). We have a large, active community who use these venues as our main places to seek support and to provide it.
+在这些教程中，如果你有任何问题，请随时在[IPFS论坛](https://discuss.ipfs.io)或在[chat.freenode.net上的#ipfs频道](irc://chat.freenode.net/%23ipfs)中提出。我们有一个很大的、活跃的社区，他们使用这些场所作为我们寻求和提供支持的主要场所。
 
-## Tutorials
+## 教程
 
-The primer contains tutorials about
+教程包含关于
 
  1. [Downloading and Installing IPFS](install-ipfs/README.md)
  2. [Files on IPFS](files-on-ipfs/README.md)
@@ -21,26 +21,26 @@ The primer contains tutorials about
  7. [Merkle Trees and the IPFS DAG](ipfs-dag/README.md)
  8. [Dynamic Content on IPFS](dynamic-content/README.md)
 
- For a full list of tutorials, look at the [Table of Contents](SUMMARY.md).
+ 有关教程的完整列表，请查看[目录](SUMMARY.md)。
 
-## Concepts
+## 概念
 
-* Cryptographic Hashes and Content Addressability
-* Authenticated Graphs
-* Turning Files into Trees
-* Turning any Data into Trees
-* Publishing hashes on the DHT
-* Getting data from the Peer to Peer Network
-* Immutability: "Changes" as _additions_ to the tree
+* 密码哈希和内容可寻址性
+* 验证图（Authenticated Graphs）
+* 将文件转换为树
+* 将任何数据转换为树
+* 在DHT上发布hashes
+* 从点对点网络获取数据
+* 不变性:添加到树的“改变”
 * CRDTs
 * Pubsub
-* Authenticated Streams (with pubsub)
+* 认证流(Authenticated Streams，使用pubsub)
 
-## Format
+## 格式
 
-Each tutorial is a set of *lessons* that all use a format inspired by the [Railsbridge Curriculum](http://curriculum.railsbridge.org/intro-to-rails/). Each lesson declares a set of *Goals*, or [learning objectives](http://edglossary.org/learning-objectives/), then lists the *Steps*, or activities, and finally provides an *Explanation* that reviews what you've done and connects those activities to the lesson's stated Goals. The format for each lesson looks like this:
+每个教程都是一组*课程*，都使用了一种受[Railsbridge Curriculum](http://curriculum.railsbridge.org/intro-to-rails/)启发的格式。每节课都宣布一组*目标*，或[学习目标](http://edglossary.org/learning-objectives/)，然后列出*步骤*或活动，最后给出一个*解释*，回顾你已经做了什么，并将这些活动与课程的目标联系起来。每节课的格式是这样的:
 
-![Sample of Railsbridge Lesson format](/images/railsbridge-format.png)
+![Railsbridge课程格式示例](/images/railsbridge-format.png)
 
 ## Note for Contributors
 
