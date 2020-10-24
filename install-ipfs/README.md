@@ -1,6 +1,5 @@
 # 教程:安装和初始化IPFS
 
-These Lessons are tested with go-ipfs version 0.5.0. _Please update this file on github to reflect any other versions that have been tested._
 这些课程使用go-ipfs版本0.5.0进行了测试。_请在github上更新这个文件，以反映已经测试过的其他版本。_
 
 ## 先决条件
