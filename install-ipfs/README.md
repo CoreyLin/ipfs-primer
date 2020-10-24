@@ -1,33 +1,34 @@
-# Tutorial: Install and Initialize IPFS
+# 教程:安装和初始化IPFS
 
 These Lessons are tested with go-ipfs version 0.5.0. _Please update this file on github to reflect any other versions that have been tested._
+这些课程使用go-ipfs版本0.5.0进行了测试。_请在github上更新这个文件，以反映已经测试过的其他版本。_
 
-## Prerequisites
+## 先决条件
 
-* You should have some familiarity with the commandline
+* 你应该对命令行有一些熟悉
 
-## Learning Objectives
+## 学习目标
 
-These Lessons will teach you how to
+这些课程会教你如何
 
-* Install IPFS
-* Initialize an IPFS repository
-* Locate where IPFS stores the contents of your local IPFS repository
+* 安装IPFS
+* 初始化一个IPFS仓库
+* 找到IPFS存储本地IPFS仓库内容的位置
 
-## Key Concepts
+## 关键概念
 
-* IPFS Repositories
+* IPFS仓库
 
-## Lessons
+## 课程
 
-1. [Lesson: Download and Install IPFS](download-and-install.md)
-2. [Lesson: Initialize your IPFS Repository](initialize-repository.md)
+1. [课程:下载并安装IPFS](download-and-install.md)
+2. [课程:初始化IPFS仓库](initialize-repository.md)
 
-## Next Steps
+## 接下来的步骤
 
-Once you know how to add files to IPFS and retrieve them, you will be ready to share those files on the P2P network following the [Tutorial: Going Online - Joining the Distributed Web](../going-online/)
+一旦你了解了如何将文件添加到IPFS并检索它们，你就可以按照Tutorial: Going Online - Joining the Distributed Web](../going-online/)在P2P网络上共享这些文件了。
 
-If you're wondering how to update those files after you've shared them, see the [Tutorial: Publishing Changes on the Permanent Web](../publishing-changes/)
+如果你想知道如何在共享这些文件后更新它们，请参阅[Tutorial: Publishing Changes on the Permanent Web](../publishing-changes/)
 
-If you want to see how to access those files from the conventional HTTP web, go to the [Tutorial: Interacting with the Classical \(HTTP\) Web](../classical-web/)
+如果你想了解如何从传统HTTP web访问这些文件，请转到[Tutorial: Interacting with the Classical \(HTTP\) Web](../classical-web/)
 
