@@ -1,7 +1,7 @@
 # Table of contents
 
 * [介绍](README.md)
-* [Tutorial: Install and Initialize IPFS](install-ipfs/README.md)
+* [教程:安装和初始化IPFS](install-ipfs/README.md)
   * [Lesson: Download and Install IPFS](install-ipfs/download-and-install.md)
   * [Lesson: Initialize your IPFS Repository](install-ipfs/initialize-repository.md)
 * [Tutorial: Files on IPFS](files-on-ipfs/README.md)
