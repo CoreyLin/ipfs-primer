@@ -27,7 +27,7 @@
 
 一旦你了解了如何将文件添加到IPFS并检索它们，你就可以按照Tutorial: Going Online - Joining the Distributed Web](../going-online/)在P2P网络上共享这些文件了。
 
-如果你想知道如何在共享这些文件后更新它们，请参阅[Tutorial: Publishing Changes on the Permanent Web](../publishing-changes/)
+如果你想知道如何在共享这些文件后更新它们，请参阅[教程:在永久Web上发布更改](../publishing-changes/)
 
-如果你想了解如何从传统HTTP web访问这些文件，请转到[Tutorial: Interacting with the Classical \(HTTP\) Web](../classical-web/)
+如果你想了解如何从传统HTTP web访问这些文件，请转到[教程:与传统(HTTP) Web交互](../classical-web/)
 
