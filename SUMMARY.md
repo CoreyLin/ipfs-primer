@@ -2,7 +2,7 @@
 
 * [介绍](README.md)
 * [教程:安装和初始化IPFS](install-ipfs/README.md)
-  * [Lesson: Download and Install IPFS](install-ipfs/download-and-install.md)
+  * [课程:下载并安装IPFS](install-ipfs/download-and-install.md)
   * [Lesson: Initialize your IPFS Repository](install-ipfs/initialize-repository.md)
 * [Tutorial: Files on IPFS](files-on-ipfs/README.md)
   * [Lesson: Add Content to IPFS and Retrieve It](files-on-ipfs/add-and-retrieve-file-content.md)
