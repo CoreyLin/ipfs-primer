@@ -6,6 +6,8 @@
 
 本书的GitHub仓库位于 [https://github.com/ipfs-shipyard/ipfs-primer](https://github.com/ipfs-shipyard/ipfs-primer) 。
 
+中文版翻译by Corey Lin(林科)
+
 ## 得到帮助
 
 在这些教程中，如果你有任何问题，请随时在[IPFS论坛](https://discuss.ipfs.io)或在[chat.freenode.net上的\#ipfs频道](irc://chat.freenode.net/%23ipfs)中提出。我们有一个很大的、活跃的社区，他们使用这些场所作为我们寻求和提供支持的主要场所。
