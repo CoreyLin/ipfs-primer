@@ -1,32 +1,32 @@
-# Lesson: Find Peers on the Network
+# 课程:在网络上寻找Peers
 
-This lesson shows how to find and examine the peers you connect to on the IPFS network. You will use the `ipfs swarm` and `ipfs id` tools for this purpose. The swarm is the component that opens, listens for, and maintains connections to other IPFS peers. You can also examine connected peers and the network using the Web UI.
+本课展示了如何查找和检查IPFS网络上连接的peers。为此，你将使用`ipfs swarm`和`ipfs id`工具。swarm是一个打开、监听和维护与其他IPFS peers连接的组件。你还可以使用Web UI检查连接的peers和网络。
 
-## Prerequisites
+## 先决条件
 
-To do the steps in this lesson you must:
+要做到这一课的步骤，你必须:
 
-* Be running the `ipfs daemon`
+* 正在运行`ipfs daemon`
 
-## Goals
+## 目标
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Find and examine peers on the IPFS network
+* 查找和检查IPFS网络中的peers
 
-## Steps
+## 步骤
 
-### Step 1: Start the IPFS daemon
+### 步骤1:启动IPFS daemon
 
-Start the IPFS daemon by running
+通过运行如下命令启动IPFS daemon
 
 ```bash
 $ ipfs daemon
 ```
 
-### Step 2: Find peers that we are connected to
+### 步骤2:找到与我们连接上的peers
 
-You can use the command `ipfs swarm peers` to examine for connected peers:
+你可以使用命令`ipfs swarm peers`检查连接上的peers:
 
 ```bash
 $ ipfs swarm peers
@@ -38,9 +38,9 @@ $ ipfs swarm peers
 /ip6/2604:1380:40b0:c00::3/tcp/4001/ipfs/QmYA....yYdN
 ```
 
-### Step 3: Examine a connected peer
+### 步骤3:检查连接的一个peer
 
-You will use the `ipfs id <hash>` command to examine a connected peer:
+你将使用`ipfs id <hash>`命令检查连接的一个peer
 
 ```bash
 $ ipfs id Qmf1...mx36
@@ -57,21 +57,21 @@ $ ipfs id Qmf1...mx36
 }
 ```
 
-Note: The "ID" field shown above is the Peer's ID, and this was also the hash that was shown when you ran `ipfs swarm peers`. Peers are identified on the network directly by their Peer ID.
+注意:上面显示的“ID”字段是peer的ID，这也是运行`ipfs swarm peers`时显示的哈希。在网络上通过peer ID直接识别peers。
 
-### Step 4: Examine using the Web UI
+### 步骤4:用Web UI来检查
 
-The IPFS daemon also serves up a modern Web UI that you are able to open in a browser. Did you notice when you started the daemon that there was the following?
+IPFS daemon还提供了一个可以在浏览器中打开的现代Web UI。你是否注意到在启动deamon时存在以下信息?
 
 WebUI: [http://127.0.0.1:5001/webui](http://127.0.0.1:5001/webui)
 
-Open the link above in your browser. You will see the Web UI displayed with sections on Status, Files, Explore, Peers, and Settings. Click on the Peers section and you will see a world map indicating the location of connected peers. Scroll down the page to see information on each of the peers, their country/city location, network latency, Peer ID, etc. Spend some time looking at the other different sections of the Web UI.
+在你的浏览器中打开上面的链接。你将看到Web UI显示状态、文件、浏览、Peers和设置部分。单击“Peers”部分，你将看到一张指示连接的peers的位置的世界地图。向下滚动页面可以看到每个peer的信息，它们的国家/城市位置，网络延迟，Peer ID，等等。花点时间看看Web UI的其他不同部分。
 
-## Explanation
+## 解释
 
-Once you have connected to the IPFS network by running the daemon, other IPFS nodes \(peers\) will begin to connect and communicate with your node. Using the commands `ipfs swarm` and `ipfs id` allows you to examine the connected nodes. The Web UI also shows in-depth information about peers.
+通过运行daemon连接到IPFS网络之后，其他IPFS节点(peers)将开始与你的节点连接和通信。使用命令`ipfs swarm`和`ipfs id`可以检查连接的节点。Web UI还显示了关于peers的深入信息。
 
-## Next Lesson: Retrieve content from a Peer
+## 下一课:从一个peer那里检索内容
 
-Proceed to the next lesson to learn how to [Retrieve content from a Peer]()
+继续下一课，学习如何[从一个peer检索内容]
 
