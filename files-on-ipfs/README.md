@@ -1,41 +1,41 @@
-# Tutorial: Files on IPFS
+# 教程:IPFS上的文件
 
-These Lessons are tested with go-ipfs version 0.5.0. _Please update this file on github to reflect any other versions that have been tested._
+这些课程使用go-ipfs版本0.5.0进行了测试。 _请在github上更新这个文件，以反映已经测试过的其他版本。_
 
-## Prerequisites
+## 先决条件
 
-* You should have some familiarity with the command line.
-* You should have `ipfs` installed - the [previous tutorial](../install-ipfs/) has instructions for that
+* 你应该对命令行有一些熟悉。
+* 你应该安装了`ipfs` - [上一教程](../install-ipfs/)对此有说明
 
-## Learning Objectives
+## 学习目标
 
-These Lessons will teach you how to
+这些课程会教你如何
 
-* Add files to your local IPFS node
-* Read files out of your local IPFS node
-* List the files in your IPFS node
-* Tell IPFS to hold onto files by _pinning_ them
+* 将文件添加到本地IPFS节点
+* 从本地IPFS节点读取文件
+* 列出IPFS节点中的文件
+* 告诉IPFS通过 _pin_ 来保存文件
 
-## Key Concepts
+## 关键概念
 
-* Distinction between IPFS and your regular Filesystem
-* Identifying files by their Hashes
-* IPFS Garbage Collection
-* Pinning files on an IPFS Node
+* IPFS和常规文件系统之间的区别
+* 通过哈希识别文件
+* IPFS垃圾收集
+* 将文件pin在一个IPFS节点上
 
-## Lessons
+## 课程
 
-1. [Lesson: Add Content to IPFS and Retrieve It](add-and-retrieve-file-content.md)
-2. [Lesson: Wrap Filenames and Directory Info around Content in IPFS](wrap-directories-around-content.md)
-3. [Lesson: Pinning - Tell IPFS to Keep a File](pin-files.md)
+1. [课程:向IPFS添加内容并检索它](add-and-retrieve-file-content.md)
+2. [课程:将文件名和目录信息围绕在IPFS的内容周围](wrap-directories-around-content.md)
+3. [课程:Pinning - 让IPFS保存一个文件](pin-files.md)
 
-## Next Steps
+## 接下来的步骤
 
-Once you know how to add files to IPFS and retrieve them, you will be ready to share those files on the P2P network following the [Tutorial: Going Online - Joining the Distributed Web](../going-online/)
+一旦你了解了如何将文件添加到IPFS并检索它们，你就可以按照[Tutorial: Going Online - Joining the Distributed Web](../going-online/)在P2P网络上共享这些文件了。
 
-If you're wondering how to update those files after you've shared them, see the [Tutorial: Publishing Changes on the Permanent Web](../publishing-changes/)
+如果你想知道如何在共享这些文件后更新它们，请参阅[Tutorial: Publishing Changes on the Permanent Web](../publishing-changes/)
 
-If you want to see how to access those files from the conventional HTTP web, go to the [Tutorial: Interacting with the Classical \(HTTP\) Web](../classical-web/)
+如果你想了解如何从传统HTTP web访问这些文件，请参阅[Tutorial: Interacting with the Classical \(HTTP\) Web](../classical-web/)
 
-If you want to know more about how IPFS stores this content internally using Merkle DAGs, go to the [Tutorial: Merkle Trees and the IPFS DAG](../ipfs-dag/)
+如果你想了解更多关于IPFS如何使用Merkle DAG在内部存储这些内容，请访问[Tutorial: Merkle Trees and the IPFS DAG](../ipfs-dag/)
 
