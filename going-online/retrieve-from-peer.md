@@ -1,35 +1,35 @@
-# Lesson: Retrieve content from a Peer
+# 课程:从一个peer检索内容
 
-This lesson shows how to use an IPFS node on your computer to request content from other peers on the network. Some of the underlying topics are covered in greater depth in the tutorials about [Files on IPFS](https://github.com/CoreyLin/ipfs-primer/tree/ea4de53480cb4023d09e5aea985abe0f10b39145/going-online/lessons/files-on-ipfs/README.md).
+本课演示如何使用你计算机上的一个IPFS节点从网络上的其他peers请求内容。关于[IPFS上的文件](https://github.com/CoreyLin/ipfs-primer/tree/ea4de53480cb4023d09e5aea985abe0f10b39145/going-online/lessons/files-on-ipfs/README.md)的教程将更深入地讨论一些基础主题。
 
-## Prerequisites
+## 先决条件
 
-To do the steps in this lesson you must:
+要做到这一课的步骤，你必须:
 
-* Be familiar with using the command line
-* [Install and Initialize IPFS](../install-ipfs/) on your local machine
+* 熟悉使用命令行
+* 在本地机器上[安装和初始化IPFS](../install-ipfs/)
 
-## Goals
+## 目标
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Access any content through your local IPFS node using its command line interface
+* 使用命令行接口通过本地IPFS节点访问任何内容
 
-## Steps
+## 步骤
 
-### Step 1: Start the IPFS daemon
+### 步骤1:启动IPFS daemon
 
-Start the IPFS daemon by running
+通过运行以下命令启动IPFS守护进程
 
 ```bash
 $ ipfs daemon
 ```
 
-If the daemon is not running, your IPFS node won't be able to retrieve content from other nodes on the network.
+如果daemon没有运行，IPFS节点将不能从网络上的其他节点检索内容。
 
-### Step 2: Read the content on the command line
+### 步骤2:在命令行上读取内容
 
-You can use the command line to request content from your IPFS node. If the node does not have a copy of that content, it will attempt to find another peer node that does have the content. For example, the IPFS team have [published a snapshot of the turkish version of wikipedia](https://ipfs.io/blog/24-uncensorable-wikipedia/). The hash of that snapshot, which contains about 15GB of Turkish-language wikipedia pages, is `Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1`. We can use the command line to have your IPFS node read pages from that snapshot.
+你可以使用命令行从你的IPFS节点请求内容。如果节点没有该内容的副本，它将尝试寻找拥有该内容的另一个peer节点。例如，IPFS团队已经[发布了土耳其版维基百科的一个快照](https://ipfs.io/blog/24-uncensorable-wikipedia/)。该快照的哈希包含大约15GB的土耳其语维基百科页面，它是`Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1`。我们可以使用命令行让你的IPFS节点从该快照读取页面。
 
 ```text
 # get the article about "Peer to Peer"
@@ -39,17 +39,17 @@ ipfs cat Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/Peer-to-peer.html >
 ipfs ls -v -s Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/
 ```
 
-If you're not familiar with the `ipfs cat` and `ipfs ls` commands they are explained in the [Tutorial about Files on IPFS](../files-on-ipfs/)
+如果您不熟悉`ipfs cat`和`ipfs ls`命令，在[关于IPFS上的文件的教程](../files-on-ipfs/)中对它们进行了解释
 
-## Explanation
+## 解释
 
-You can use a local IPFS node to read content from the worldwide IPFS network. One way to do this is through the command line using commands like `ipfs cat` and `ipfs ls`. When you pass the content-addressed \(hash\) identifiers of the content you want into these commands, your IPFS node will check to see if it has a local copy of the content you're requesting. If your node has a local copy, it will return that content to you immediately. If your node does not have a local copy, it will attempt to find a peer on the IPFS network that does have the content. As long as _at least one peer_ has the content you want, your IPFS node will be able to find that peer, retrieve the content from the peer, and return that content to you.
+你可以使用一个本地IPFS节点从全球IPFS网络读取内容。一种方法是通过命令行使用像`ipfs cat`和`ipfs ls`这样的命令。当你将所需内容的以内容寻址的(哈希)标识符传递到这些命令时，你的IPFS节点将检查它是否拥有你所请求的内容的本地副本。如果你的节点有本地副本，它将立即返回该内容给你。如果你的节点没有本地副本，它将尝试在IPFS网络上找到具有该内容的一个peer。只要至少有一个peer拥有你想要的内容，你的IPFS节点就能够找到该peer，从该peer检索内容，并将该内容返回给你。
 
-This is the essential function of an IPFS node. It uses content-addressed \(hash\) identifiers to find content on the peer to peer network. It also provides that content to other peers who want it.
+这是一个IPFS节点的基本功能。它使用内容寻址(哈希)标识符查找点对点网络上的内容。它还将该内容提供给其他需要它的peers。
 
-## Next Steps
+## 接下来的步骤
 
-This lesson covered how to use the command line to request content from your IPFS node, but there are many other ways to interact with IPFS nodes. If you want to learn about the many other ways you can use IPFS to access the same content using the same content-addressed link, go to the [Tutorial on The Myriad Ways to Access and Distribute IPFS Content](../avenues-for-access/).
+本课介绍了如何使用命令行从你的IPFS节点请求内容，但是还有许多其他与IPFS节点交互的方法。如果你想了解使用IPFS使用相同内容寻址链接访问相同内容的许多其他方法，请参阅[有关访问和分发IPFS内容的各种方法的教程](../avenues-for-access/)。
 
-Otherwise, proceed to the next lesson [Interacting with the Classical \(HTTP\) Web](../classical-web/)
+否则，继续下一课---[与传统(HTTP) Web交互](../classical-web/)。
 
