@@ -1,31 +1,31 @@
-# Lesson: Connect your node to the IPFS network
+# 课程:将你的节点连接到IPFS网络
 
-This lesson shows how to connect the IPFS node on your local computer to the IPFS network, or “_the swarm_”. Everything that you have done so far has been done locally. Now it gets a lot more interesting!
+这节课展示了如何将本地计算机上的IPFS节点连接到IPFS网络，或称为“swarm”。到目前为止你所做的一切都是在本地完成的。现在它变得有趣多了!
 
-## Prerequisites
+## 先决条件
 
-To do the steps in this lesson you must:
+要做到这一课的步骤，你必须:
 
-* Be familiar with using the command line
-* [Install and Initialize IPFS](../install-ipfs/) on your local machine
+* 熟悉使用命令行
+* 在本地机器上[安装和初始化IPFS](../install-ipfs/)
 
-## Goals
+## 目标
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Start the IPFS daemon to connect your local node to the IPFS network
+* 启动IPFS daemon，将本地节点连接到IPFS网络
 
-## Steps
+## 步骤
 
-### Step 1: Start the IPFS daemon
+### 步骤1:启动IPFS daemon
 
-Start the IPFS daemon by running
+通过运行以下命令启动IPFS daemon
 
 ```bash
 $ ipfs daemon
 ```
 
-You will see output from the daemon like the following:
+你将看到daemon的输出，如下所示
 
 ```bash
 Initializing daemon...
@@ -46,11 +46,11 @@ Gateway (readonly) server listening on /ip4/127.0.0.1/tcp/8080
 Daemon is ready
 ```
 
-Notice that if you [added files](../files-on-ipfs/add-and-retrieve-file-content.md) before running the daemon, the blocks will be advertised after a few seconds when the reprovider runs.
+请注意，如果你在运行daemon之前[add了文件](../files-on-ipfs/add-and-retrieve-file-content.md)，那么当reprovider运行几秒钟后，就会公布这些blocks。
 
-### Step 2: Examine your ipfs node id info
+### 步骤2:检查你的ipfs节点id信息
 
-Let's look at the details of your connections made by the daemon with `ipfs id`. Open up another command line and run:
+让我们通过`ipfs id`看看这个daemon创建的连接的细节。打开另一个命令行并运行：
 
 ```bash
 $ ipfs id
@@ -71,13 +71,13 @@ $ ipfs id
 }
 ```
 
-Note: The hashes above have been shortened for readability.
+注意:为了可读性，上面的哈希被缩短了。
 
-The "ID" field is your Peer ID, used to uniquely identify your node on the IPFS network. The "PublicKey" field goes along with your Peer ID, used under-the-hood by IPFS for public key cryptography. The "Addresses" shown are an array of IP addresses used for IPFS network traffic. Addresses using TCP port 4001 are known as "swarm addresses" that your local daemon will listen on for connections from other IPFS peers.
+“ID”字段是你的Peer ID，用于在IPFS网络上唯一地标识你的节点。“PublicKey”字段与你的Peer ID一起使用，IPFS在底层使用它进行公钥加密。显示的“Addresses”是用于IPFS网络通信的IP地址数组。使用TCP端口4001的地址称为“swarm addresses”，你的本地daemon将用这些地址监听来自其他IPFS peers的连接。
 
-### Step 3: Shutdown the daemon
+### 步骤3:关闭daemon
 
-You may shut down the daemon by typing Ctrl-C in the command line that you started with:
+你可以通过在你开始的命令行输入Ctrl-C来关闭daemon:
 
 ```bash
 ...
@@ -87,7 +87,7 @@ Received interrupt signal, shutting down...
 (Hit ctrl-c again to force-shutdown the daemon.)
 ```
 
-Note: You may run the IPFS daemon as a background process using the command `ipfs daemon &`. If you want to stop the background process just type `fg` \(foreground\) to bring that process to the foreground and stop it with Ctrl-C.
+注意:你可以使用命令`ipfs daemon &`作为后台进程运行IPFSdaemon。如果您想停止后台进程，只需键入`fg`(前台)将该进程放到前台，然后按Ctrl-C停止它。
 
 ```bash
 $ ipfs daemon &
@@ -108,11 +108,11 @@ Received interrupt signal, shutting down...
 (Hit ctrl-c again to force-shutdown the daemon.)
 ```
 
-## Explanation
+## 解释
 
-You run the IPFS daemon in order to have your local IPFS node become part of the IPFS network and listen to other IPFS peers.
+运行IPFS daemon是为了让本地IPFS节点成为IPFS网络的一部分，并监听其他IPFS peers。
 
-## Next Lesson: Find Peers on the Network
+## 下一课:在网络上寻找Peers
 
-Proceed to the next lesson to learn how to [Find Peers on the Network](find-peers.md)
+继续下一课，学习如何[在网络上查找Peers](find-peers.md)
 
