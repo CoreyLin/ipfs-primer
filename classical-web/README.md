@@ -23,4 +23,3 @@
 1. [课程:使用HTTP浏览器从本地IPFS网关检索文件]()
 2. [课程:通过公共ipfs.io网关获取内容]()
 3. [课程:通过任何IPFS网关访问IPFS内容](other-gateways.md)
-
