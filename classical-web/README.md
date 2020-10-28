@@ -1,26 +1,26 @@
-# Tutorial: Interacting with the Classical \(HTTP\) Web
+# 教程:与传统(HTTP) Web交互
 
-## Prerequisites
+## 先决条件
 
-To do the lessons in this tutorial you must:
+要完成本教程中的课程，你必须:
 
-* Be familiar with using the command line
-* [Install and Initialize IPFS](../install-ipfs/) on your local machine
-* [Take your IPFS Node Online](../going-online/)
+* 熟悉使用命令行
+* 在本地机器上[安装和初始化IPFS](../install-ipfs/)
+* [让你的IPFS节点联网](../going-online/)
 
-## Learning Objectives
+## 学习目标
 
-These Lessons will teach you how to
+这些课程会教你如何
 
-* Use your browser to retrieve content through different IPFS gateways
+* 使用浏览器通过不同的IPFS网关（gateways）检索内容
 
-## Key Concepts
+## 关键概念
 
-* Flexibly downloading content from the IPFS network
+* 灵活地从IPFS网络下载内容
 
 ## Lessons
 
-1. [Lesson: Use an HTTP browser to retrieve files from local IPFS gateway]()
-2. [Lesson: Get content through the public ipfs.io gateway]()
-3. [Lesson: Access IPFS content through any IPFS gateway](other-gateways.md)
+1. [课程:使用HTTP浏览器从本地IPFS网关检索文件]()
+2. [课程:通过公共ipfs.io网关获取内容]()
+3. [课程:通过任何IPFS网关访问IPFS内容](other-gateways.md)
 
