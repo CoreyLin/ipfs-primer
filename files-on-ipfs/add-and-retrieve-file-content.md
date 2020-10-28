@@ -1,20 +1,20 @@
-# Lesson: Add Content to IPFS and Retrieve It
+# 课程:向IPFS添加内容并检索它
 
-## Goals
+## 目标
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Add a file's content to IPFS
-* Read content out of IPFS using its hash
-* Explain the relationship between IPFS hashes and the content you've added
+* 将一个文件的内容添加到IPFS中
+* 使用其哈希从IPFS中读取内容
+* 解释IPFS哈希和你添加的内容之间的关系
 
-## Steps
+## 步骤
 
-### Step 1: Create a file that you will add to IPFS
+### 步骤1:创建一个要添加到IPFS的文件
 
- You can add any type of content to IPFS. For this lesson we will put some text content into a \`.txt\` file, but you can do this same process with any content or any file.
+你可以向IPFS添加任何类型的内容。这节课我们将把一些文本内容放入`.txt`文件，但你可以对任何内容或任何文件执行相同的过程。
 
-It would be a good idea to make a new directory for this example. Navigate to somewhere you are comfortable putting a new folder \(such as `~/Desktop`\), and then create a new directory and go into it. Here is an example command:
+为这个示例创建一个新目录是个好主意。导航到你放置新文件夹的地方(比如`~/Desktop`)，然后创建一个新目录并进入其中。下面是一个示例命令:
 
 ```bash
 $ cd ~/Desktop
@@ -22,53 +22,53 @@ $ mkdir ipfs-tutorial
 $ cd ipfs-tutorial
 ```
 
-Now, create a file called `mytextfile.txt` and put the text "version 1 of my text" in it. One easy way to do this on the command line is with this command:
+现在，创建一个名为`mytextfile.txt`的文件，并将文本“version 1 of mytext”放入其中。在命令行上执行此操作的一种简单方法是使用以下命令
 
 ```bash
 $ echo "version 1 of my text" > mytextfile.txt
 ```
 
-You can read the file's contents using the `cat` command:
+你可以使用`cat`命令读取文件的内容
 
 ```bash
 $ cat mytextfile.txt
 version 1 of my text
 ```
 
-### Step 2: Add the File to IPFS
+### 步骤2:将文件添加到IPFS
 
 ```bash
 $ ipfs add mytextfile.txt
 added QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy mytextfile.txt
 ```
 
-Save the hash `QmZtmD2qt...` that ipfs returned. This is the content's cryptographic hash. If the file's content changes, the hash will change, but if the file's content remains the same, the hash will always be the same.
+保存ipfs返回的哈希`QmZtmD2qt...`。这是内容的加密哈希。如果文件的内容改变了，哈希也会改变，但是如果文件的内容保持不变，哈希就会始终不变。
 
-Bear in mind that if you're not [running the daemon](../going-online/connect-your-node.md#step-1-start-the-ipfs-daemon), it will just add locally. If you start the daemon later, the blocks will be advertised after a few seconds when the reprovider runs.
+请记住，如果你没有[运行守护进程（daemon）](../going-online/connect-your-node.md#step-1-start-the-ipfs-daemon)，它只会在本地添加。如果你稍后启动守护进程（daemon），则在reprovider运行几秒钟后将公布这些blocks。
 
-### Step 3: Read the content out of IPFS
+### 步骤3:从IPFS中读取内容
 
-Just like the regular `cat` command lets you read the contents of a file, the `ipfs cat` command lets you read the contents of a file that has been added to ipfs.
+正如常规的`cat`命令允许你读取一个文件的内容一样，`ipfs cat`命令也允许你读取已添加到ipfs中的一个文件的内容。
 
-Use the `ipfs cat` command to read the content by passing it the content's cryptographic hash -- this is the hash that ipfs returned when you ran `ipfs add mytextfile.txt`.
+使用`ipfs cat`命令通过传递内容的加密哈希来读取内容 -- 这是运行`ipfs add mytextfile.txt`时ipfs返回的哈希。
 
 ```bash
 $ ipfs cat QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy
 version 1 of my text
 ```
 
-Notice that this returned the _content_ of the file, not the text file itself. That's because `QmZtmD2qt...` is the hash of the content, not the file itself. We'll test that in the next step.
+注意，这返回的是文件的内容，而不是文本文件本身。这是因为`QmZtmD2qt...`是内容的哈希，而不是文件本身。我们将在下一步测试它。
 
-### Step 4: Confirm that the hash points to the content, not the file
+### 步骤4:确认哈希指向的是内容，而不是文件
 
-When you used `ipfs cat` to read the file's contents it returned the _content_ of the file, not the text file itself. That's because the hash `QmZtmD2qt...` is the hash of the _content_. You can test that by adding the text content directly to IPFS without ever putting it in a file.
+当使用`ipfs cat`读取文件内容时，它返回文件的 _内容_ ，而不是文本文件本身。这是因为哈希值`QmZtmD2qt...`是 _内容_ 的哈希。你可以通过将文本内容直接添加到IPFS而不将其放入文件来测试。
 
 ```bash
 $ echo "version 1 of my text" | ipfs add
 added QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy
 ```
 
-The hash should be exactly the same as the hash you got when you added mytextfile.txt. If you want to triple-check, you can run each of these commands as many times as you want. The hash should always be the same.
+这个哈希应该与你添加mytextfile.txt时得到的哈希完全相同。如果你想要进行三重检查，那么你可以任意多次运行这些命令。哈希应该总是相同的。
 
 ```bash
 $ ipfs add mytextfile.txt
@@ -79,22 +79,22 @@ $ cat mytextfile.txt | ipfs add
 added QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy
 ```
 
-As long as the content remains the same, you will always get the same hash. As far as IPFS is concerned, it _is_ the same content.
+只要内容保持不变，你将始终得到相同的哈希。就IPFS而言，内容 _是_ 相同的。
 
-### Step 5: Change the content and get a different hash
+### 步骤5:更改内容并获得不同的哈希
 
-Now change the text content to "version 2 of my text" and add it to ipfs. You will get a different hash.
+现在将文本内容更改为“version 2 of my text”并添加到ipfs中。你会得到一个不同的哈希。
 
-As you confirmed in the previous step, you can add the new text directly to IPFS or you can modify mytextfile.txt and add it to IPFS. You will get the same hash either way.
+正如你在上一步中确认的那样，你可以将新文本直接添加到IPFS中，也可以修改mytextfile.txt并将其添加到IPFS中。你会得到相同的哈希值。
 
 ```bash
 $ echo "version 2 of my text" | ipfs add
 added QmTudJSaoKxtbEnTddJ9vh8hbN84ZLVvD5pNpUaSbxwGoa QmTudJSaoKxtbEnTddJ9vh8hbN84ZLVvD5pNpUaSbxwGoa
 ```
 
-### Step 5: Pipe content from IPFS into a File
+### 步骤6:将内容从IPFS传输到一个文件中
 
-You can read this content \(any version\) out of ipfs and write it into a file. For example, you can toggle the contents of mytextfile.txt from "version 1" to "version 2" and back as many times as you want:
+你可以从ipfs中读取此内容(任何版本)并将其写入一个文件。例如，你可以切换mytextfile.txt的内容从“版本1”到“版本2”以及切换回来，运行你想要的任何次数。
 
 ```bash
 $ ipfs cat QmTudJSaoKxtbEnTddJ9vh8hbN84ZLVvD5pNpUaSbxwGoa > mytextfile.txt
@@ -105,7 +105,7 @@ $ cat mytextfile.txt
 version 1 of my text
 ```
 
-You can also write the content from ipfs into a completely new file.
+还可以将ipfs中的内容写入一个全新的文件中。
 
 ```bash
 $ ipfs cat QmZtmD2qt6fJot32nabSP3CUjicnypEBz7bHVDhPQt9aAy > anothertextfile.txt
@@ -113,15 +113,15 @@ $ cat anothertextfile.txt
 version 1 of my text
 ```
 
-## Explanation
+## 解释
 
-IPFS tracks content based on its cryptographic hash. **This hash uniquely identifies exactly that content.** As long as the content stays the same, the hash stays the same. If the content changes at all you will get a different hash.
+IPFS根据其加密哈希跟踪内容。**这个哈希准确地唯一地标识该内容。**只要内容保持不变，哈希就保持不变。如果内容改变，你将得到一个不同的哈希。
 
-If you have two different files that contain identical content, IPFS will track that content with one hash. The filenames are different, but the content is the same, so the hash of the content will be identical.
+如果你有两个包含相同内容的不同文件，IPFS将使用一个哈希跟踪该内容。文件名不同，但内容是相同的，因此内容的哈希是相同的。
 
-This leads to the question: how does IPFS track file names? That's the topic of the next lesson.
+这就引出了一个问题:IPFS如何跟踪文件名?这是下节课的主题。
 
-## Next Lesson: Add Filenames and Directory Info to IPFS
+## 下一课:将文件名和目录信息添加到IPFS
 
-Proceed to the next lesson to learn how to [Wrap Filenames and Directory Info around Content in IPFS](wrap-directories-around-content.md)
+继续下一课，学习如何[在IPFS中围绕内容包装文件名和目录信息](wrap-directories-around-content.md)
 
