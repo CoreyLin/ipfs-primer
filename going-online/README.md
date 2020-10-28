@@ -1,27 +1,27 @@
-# Tutorial: Going Online - Joining the Distributed Web
+# 教程:Going Online-加入分布式Web
 
-## Prerequisites
+## 先决条件
 
-To do the lessons in this tutorial you must:
+要完成本教程中的课程，你必须:
 
-* Be familiar with using the command line
-* [Install and Initialize IPFS](../install-ipfs/) on your local machine
+* 熟悉使用命令行
+* 在本地机器上[安装和初始化IPFS](../install-ipfs/)
 
-## Learning Objectives
+## 学习目标
 
-These Lessons will teach you how to
+这些课程会教你如何
 
-* Connect your local IPFS node to the IPFS network
-* Find/examine Peers on the IPFS network
-* Retrieve content from a Peer on the IPFS network
+* 将本地IPFS节点连接到IPFS网络
+* 查找/检查IPFS网络中的对等节点（Peers）
+* 从IPFS网络上的一个Peer检索内容
 
-## Key Concepts
+## 关键概念
 
-* Connecting and interacting with the IPFS network
+* 与IPFS网络连接和交互
 
 ## Lessons
 
-1. [Lesson: Connect your node to the IPFS network](connect-your-node.md)
-2. [Lesson: Find Peers on the Network](find-peers.md)
-3. [Lesson: Retrieve content from a Peer]()
+1. [课程:将你的节点连接到IPFS网络](connect-your-node.md)
+2. [课程:在网络上寻找Peers](find-peers.md)
+3. [课程:从一个Peer检索内容]()
 
