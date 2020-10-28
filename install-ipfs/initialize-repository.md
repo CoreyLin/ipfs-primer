@@ -1,18 +1,18 @@
-# Lesson: Initialize your IPFS Repository
+# 课程:初始化IPFS仓库
 
-## Goals
+## 目标
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Initialize a local ipfs repository
-* Locate where IPFS stores the contents of your local IPFS repository
-* Open the IPFS Configuration file
+* 初始化一个本地ipfs仓库
+* 找到IPFS存储本地IPFS仓库内容的位置
+* 打开IPFS配置文件
 
-## Steps
+## 步骤
 
-### Step 1: Initialize the Repository
+### 步骤1:初始化仓库
 
-Use the `ipfs init` command to initialize the repository. This will generate a local ipfs repository for the current user account on your machine. It also generates a cryptographic keypair that allows your ipfs node to cryptographically sign the content and messages that you create.
+使用`ipfs init`命令初始化仓库。这将为你机器上的当前用户帐户生成一个本地ipfs仓库。它还生成一个加密密钥对（keypair），允许ipfs节点以加密方式对所创建的内容和消息进行签名。
 
 ```bash
 $ ipfs init
@@ -24,7 +24,7 @@ to get started, enter:
   ipfs cat /ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/readme
 ```
 
- **Note:** If you have already initialized ipfs on your machine, you will get an error message like:
+ **注意:** 如果你已经在你的机器上初始化了ipfs，你将得到一个错误消息，如
 
 ```text
 
@@ -33,13 +33,13 @@ Error: ipfs configuration file already exists!
 Reinitializing would overwrite your keys.
 ```
 
- This is ok. It means you've already done this step. You can safely proceed to Step 2.
+ 这是ok的。这意味着你已经完成了这一步。你可以安全地继续第2步。
 
-### Step 2: Use IPFS to explore the post-install documentation
+### 步骤2:使用IPFS查看安装后文档
 
- If you installed a different version of ipfs, you may have gotten a slightly different path to use here. Either path will work for this tutorial. The path you got from the ipfs init command will give you documentation that's accurate for the version of ipfs you're using.
+ 如果你安装了一个不同版本的ipfs，那么在这里使用的路径可能略有不同。每种路径都适用于本教程。从ipfs init命令获得的路径将为你提供适合你正在使用的ipfs版本的文档。
 
-When you ran `ipfs init`, it provided a hint for how you can get started. It said:
+当你运行ipfs init时，它提供了如何开始的提示。它说:
 
 ```bash
 to get started, enter:
@@ -47,21 +47,21 @@ to get started, enter:
   ipfs cat /ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/readme
 ```
 
-This `ipfs cat` command tells ipfs to read the content matching the path you provided. If the content isn't available locally, ipfs will attempt to find it on the peer-to-peer network.
+这个`ipfs cat`命令告诉ipfs读取与你提供的路径匹配的内容。如果内容在本地找不到，ipfs将尝试在点对点网络上找到它。
 
-In order to run the following command, the ipfs daemon must be running. In order to run the ipfs daemon, type `ipfs daemon &`. This will start the ipfs daemon and place it into the background of your current console.
+为了运行以下命令，ipfs守护进程必须运行。要运行ipfs守护进程，输入`ipfs daemon &`。这将启动ipfs守护进程，并将其放到当前控制台的背景中。
 
 ```bash
 $ ipfs daemon &
 ```
 
-Run the `ipfs cat` command with the path you got from the init message:
+使用从init消息获得的路径运行`ipfs cat`命令
 
 ```bash
 $ ipfs cat /ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/readme
 ```
 
-You should see something like this:
+你应该看到这样的东西:
 
 ```text
 Hello and Welcome to IPFS!
@@ -92,39 +92,39 @@ Check out some of the other files in this directory:
   ./security-notes
 ```
 
-You can explore other objects in there. For example, check out `security-notes`:
+你可以在其中探索其他对象。例如，访问`security-notes`
 
 ```bash
 ipfs cat /ipfs/QmYwAPJzv5CZsnA625s3Xf2nemtYgPpHdWEz79ojWnPbdG/security-notes
 ```
 
-### Step 3: Locate where IPFS Stores the Repository Contents on your Machine
+### 步骤3:定位IPFS在你的机器上存储仓库内容的位置
 
-`ipfs` stores its local object repository in `~/.ipfs`
+`ipfs`将其本地对象仓库存储在`~/.ipfs`中
 
 ```bash
 $ ls ~/.ipfs
 ```
 
-The contents of that directory look like this:
+该目录的内容如下所示:
 
 ```bash
 blocks        config        datastore    version
 ```
 
-All of the contents of your IPFS repository are stored within this directory. For example, the readme file from above is stored in here, along with the other files it links to. You can run a grep to find out the exact location.
+IPFS仓库的所有内容都存储在这个目录中。例如，上面的readme文件和它链接的其他文件一起存储在这里。你可以运行grep来找出确切的位置。
 
-### Step 4: Open the IPFS Configuration file
+### 步骤4:打开IPFS配置文件
 
-The configuration for your ipfs repository is in a json file that's usually stored at `~/.ipfs/config`. To view the current config, run:
+ipfs仓库的配置在一个json文件中，该文件通常存储在`~/.ipfs/config`中。要查看当前配置，请运行:
 
 ```bash
 $ ipfs config show
 ```
 
-One of the useful details in this config file is at `Datastore.Path`. This tells you where the ipfs repository's contents are being stored. As we saw in Step 3, this is usually `~/.ipfs`
+这个配置文件中有用的细节之一是`Datastore.Path`。这将告诉你ipfs仓库的内容存储在何处。正如我们在步骤3中看到的，这通常是`~/.ipfs`
 
-## Next Steps
+## 接下来的步骤
 
-Next, proceed to the [Files on IPFS](../files-on-ipfs/) tutorial.
+下一步，进入[IPFS上的文件](../files-on-ipfs/)教程
 
