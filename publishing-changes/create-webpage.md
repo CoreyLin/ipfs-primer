@@ -1,32 +1,32 @@
-# Lesson: Create a Simple Webpage and Add It to IPFS
+# 课程:创建一个简单的网页并将其添加到IPFS中
 
-This lesson shows you how to create a simple webpage and add it to IPFS. Once you are able to do this you can make your webpages as beautiful or complex as you would like, and add them to IPFS using the same basic commands.
+这节课向你展示了如何创建一个简单的网页并将其添加到IPFS中。一旦你能够做到这一点，你就可以使你的网页按照你想要的那样漂亮或复杂，并使用相同的基本命令将它们添加到IPFS中。
 
-## Prerequisites
+## 先决条件
 
-To do the steps in this lesson you must:
+要做到这一课的步骤，你必须:
 
-* [Install and Initialize IPFS](../install-ipfs/) on your local machine
+* 在本地机器上安装和初始化IPFS
 
-## Goals
+## 目标
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Create a simple webpage and add it to IPFS
+* 创建一个简单的网页并将其添加到IPFS中
 
-## Steps
+## 步骤
 
-### Step 1: Start the IPFS daemon
+### 步骤1:启动IPFS daemon
 
-If the IPFS daemon is not running already, then start the daemon now
+如果IPFS daemon还没有运行，那么现在就启动这个daemon
 
 ```bash
 $ ipfs daemon
 ```
 
-### Step 2: Create webpage directory and content
+### 步骤2:创建网页目录和内容
 
-Create a new webpage directory in your user's home directory.
+在用户的家目录中创建一个新的网页目录。
 
 ```bash
 $ cd ~  (or cd %userprofile% on Windows)
@@ -34,13 +34,13 @@ $ mkdir simple-webpage
 $ cd simple-webpage/
 ```
 
-Download this nice kitten image using ipfs:
+使用ipfs下载这张漂亮的小猫图片
 
 ```bash
 $ ipfs cat QmW2WQi7j6c7UgJTarActp7tDNikE4B2qXtFCfLPdsgaTQ/cat.jpg > cat.jpg
 ```
 
-Using a text editor, create a file called `index.html` and copy/paste the following content:
+使用一个文本编辑器，创建一个名为`index.html`的文件，并复制/粘贴以下内容
 
 ```bash
 <!DOCTYPE html>
@@ -57,18 +57,18 @@ Using a text editor, create a file called `index.html` and copy/paste the follow
 </html>
 ```
 
-Save `index.html` in the `simple-webpage` directory and close the text editor. If you like, you may open `index.html` in the browser to see the webpage.
+在`simple-webpage`目录中保存`index.html`并关闭文本编辑器。如果你愿意，你可以在浏览器中打开`index.html`来查看网页。
 
 ![](../.gitbook/assets/webpage4.png)
 
-This simple webpage only has 2 files, `index.html` and `cat.jpg`. Now you will add the `simple-webpage` directory to IPFS:
+这个简单的网页只有两个文件，`index.html`和`cat.jpg`。现在你将把`simple-webpage`目录添加到IPFS中：
 
 ```bash
 $ cd ..
 $ ipfs add -r simple-webpage/
 ```
 
-You should see output like the following:
+你应该看到如下所示的输出：
 
 ```bash
 added Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u simple-webpage/cat.jpg
@@ -77,13 +77,13 @@ added QmZhCL5rkWjH4MotDxKHUDaUESEKhTxSE7Xr16zwe59sjT simple-webpage
  432.98 KiB / 432.98 KiB [=============================================] 100.00%
 ```
 
-Notice that you used the command `ipfs add` with the `-r` option to tell IPFS to recursively add the contents of the directory.
+注意，你使用带`-r`选项的命令`ipfs add`来告诉IPFS递归地添加目录的内容。
 
-## Explanation
+## 解释
 
-You can work on a webpage locally and then add it to IPFS. When you add your webpage directory content to IPFS, you use `ipfs add` with the `-r` option to recursively add all of the files within the directory to IPFS.
+你可以在本地创建一个网页，然后将其添加到IPFS中。当你将网页目录内容添加到IPFS时，可以使用带-r选项的ipfs add将目录中的所有文件递归添加到IPFS中。
 
-## Next Steps
+## 接下来的步骤
 
-Proceed to the next lesson to learn how to [View Your Webpage with IPFS and Publish to IPNS](view-and-publish.md)
+继续下一课，学习如何[使用IPFS查看你的网页并发布到IPNS上](view-and-publish.md)
 
