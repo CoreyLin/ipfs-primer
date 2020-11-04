@@ -1,60 +1,60 @@
-# Lesson: Run IPFS over Tor transport \(experimental\)
+# 课程:在Tor transport上运行IPFS(试验性的)
 
-IPFS has an experimental feature that allows an IPFS node to interact with other IPFS nodes over the Tor transport protocol. The goal of this feature is to allow IPFS nodes to anonymously communicate with each other. **This feature is experimental!** Until we have tested this feature and removed the "experimental" designation, you should assume that information about your node might leak.
+IPFS有一个实验性的特性，允许一个IPFS节点通过Tor传输协议与其他IPFS节点交互。这个特性的目标是允许IPFS节点之间匿名通信。 **这个特性是实验性的!** 在我们测试了此特性并删除了“实验性”名称之前，你应该假定有关你的节点的信息可能会泄漏。
 
-In the meantime, a more secure way to protect your anonymity would be to [access data using the tor browser and an IPFS tor gateway](tor-gateways.md).
+与此同时，一种更安全的保护匿名性的方法是[使用tor浏览器和一个IPFS tor网关访问数据](tor-gateways.md)。
 
-## Prerequisites
+## 先决条件
 
-To do the steps in this lesson you must:
+要做到这一课的步骤，你必须:
 
-* Be familiar with using the command line
-* [Install and Initialize IPFS](../install-ipfs/) on your local machine
+* 熟悉使用命令行
+* 在本地机器上安装和初始化IPFS
 
-## Goals
+## 目标
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Configure an IPFS node to use the Tor transport
-* Request content through that node
+* 将一个IPFS节点配置为使用Tor传输
+* 通过该节点请求内容
 
-## Steps
+## 步骤
 
-### Step 1: Configure IPFS to use the Tor transport
+### 步骤1:配置IPFS以使用Tor传输
 
 Work-In-Progress: [https://github.com/ipfs/notes/issues/37](https://github.com/ipfs/notes/issues/37)
 
 Work-In-Progress: [https://github.com/OpenBazaar/go-onion-transport](https://github.com/OpenBazaar/go-onion-transport)
 
-TODO - _This explanation has not been written yet. If you want to help work on it, or if you want to encourage us to give it attention, open an issue at_ [https://github.com/ipfs-shipyard/ipfs-primer/issues](https://github.com/ipfs-shipyard/ipfs-primer/issues)
+TODO - 这个解释还没有写出来。如果你想帮助解决这个问题，或者你想鼓励我们关注这个问题，在[https://github.com/ipfs-shipyard/ipfs-primer/issues](https://github.com/ipfs-shipyard/ipfs-primer/issues)上开一个issue。
 
-### Step 2: Start the IPFS daemon
+### 步骤2:启动IPFS daemon
 
-Start the IPFS daemon
+启动IPFS daemon
 
 ```bash
 $ ipfs daemon
 ```
 
-For more info about this step, read [Tutorial: Going Online - Joining the Distributed Web](../going-online/)
+有关这一步的更多信息，请阅读[教程:Going Online - 加入分布式Web](../going-online/)
 
-### Step 3: Request the content you want from your local IPFS node's gateway
+### 步骤3:从你的本地IPFS节点的网关请求所需的内容
 
-This step is the same as [using any other IPFS gateway](../classical-web/other-gateways.md) -- only the address of the gateway is different: If you're using the hash of a specific snapshot of content, use the path `http://localhost:8080/ipfs/<your-ipfs-hash>`. If you're using an IPNS hash to get the _latest_ version of some content, use the path `http://localhost:8080/ipns/<your-ipns-hash>`
+此步骤与[使用任何其他IPFS网关](../classical-web/other-gateways.md)相同 -- 只是网关的地址不同:如果使用特定内容快照的哈希，请使用路径`http://localhost:8080/ipfs/<your-ipfs-hash>` 。如果使用一个IPNS哈希来获取某些内容的最新版本，请使用路径`http://localhost:8080/ipns/<your-ipns-hash>` 。
 
-To view the wikipedia page we're using as an example in all of the lessons in the [Tutorial on The Myriad Ways to Access and Distribute IPFS Content](./), use these links:
+要查看我们在所有课程中使用的wikipedia页面，请使用这些链接
 
 * 2017-04-30 snapshot: [http://localhost:8080/ipfs/Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/Anasayfa.html](http://localhost:8080/ipfs/Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/Anasayfa.html)
 * latest \(IPNS\): [http://localhost:8080/ipns/QmQP99yW82xNKPxXLroxj1rMYMGF6Grwjj2o4svsdmGh7S/wiki/Anasayfa.html](http://localhost:8080/ipns/QmQP99yW82xNKPxXLroxj1rMYMGF6Grwjj2o4svsdmGh7S/wiki/Anasayfa.html)
 * latest \(DNS\): [http://localhost:8080/ipns/wikipedia-on-ipfs.io](http://localhost:8080/ipns/wikipedia-on-ipfs.io)
 
-## Explanation
+## 解释
 
-**This feature is experimental!** Until we have tested this feature and removed the "experimental" designation, you should assume that the explanation here is aspirational and provisional. We are describing what _should_ be true but we have not yet tested and confirmed that the approach works without leaking information.
+**这个特性是实验性的!** 在我们测试了这个特性并去掉了“实验性”的名称之前，你应该假设这里的解释是期望的和临时的。我们正在描述什么应该是真实的，但我们还没有测试和确认这种方法在没有泄露信息的情况下工作。
 
-When you configure an IPFS node to use the Tor transport, the node will pipe all of its peer-to-peer communications through the Tor onion network. This means that when you request content from your local node, whether through its http gateway at localhost:8080 or through the command line, the node will access the IPFS network over the tor transport protocol. When it connects with peer nodes on the IPFS network, the peers will not know which node they are talking to nor where it is.
+当你将一个IPFS节点配置为使用Tor传输时，该节点将通过Tor onion网络传输它的所有点对点通信。这意味着，当你从你的本地节点请求内容时，无论是通过它在localhost:8080上的http网关还是通过命令行，节点都将通过tor传输协议访问IPFS网络。当它与IPFS网络上的peers连接时，peers将不知道它们正在与哪个节点通信，也不知道它在哪里。
 
-## Next Steps
+## 接下来的步骤
 
-Return to the [Tutorial on The Myriad Ways to Access and Distribute IPFS Content](./) to learn about the many other ways you can use IPFS to access the same content using the same content-addressed link.
+返回[关于访问和分发IPFS内容的各种方法的教程](./)，了解使用IPFS使用相同内容寻址的链接访问相同内容的许多其他方法。
 
