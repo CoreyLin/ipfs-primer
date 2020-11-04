@@ -1,2 +1,2 @@
-# Review: Access IPFS content through any IPFS gateway
+# 回顾:通过任何IPFS网关访问IPFS内容
 
