@@ -1,80 +1,80 @@
-# Lesson: Sneakernets - moving the data on USB Drives and other Hardware
+# 课程:Sneakernets - 移动USB驱动器和其他硬件上的数据
 
-We're not kidding. If you'd like to move IPFS content between networks via [sneakernet](https://en.wikipedia.org/wiki/Sneakernet), IPFS is just fine with that. This lesson covers how to load IPFS content onto storage devices like USB drives so that you can physically move the content to new networks and then re-publish it. Without ever relying on a direct connection between the networks, this will make the IPFS links for your content valid on both sides of the air gap.
+我们不是在开玩笑。如果你想通过[sneakernet](https://en.wikipedia.org/wiki/Sneakernet)在网络之间移动IPFS内容，IPFS是支持的。本课介绍了如何将IPFS内容加载到USB驱动器等存储设备上，这样你就可以将内容物理地移动到新的网络上，然后重新发布它。无需依赖网络之间的直接连接，这将使你的内容的IPFS链接在气隙（两个网络）的两边有效。
 
-Examples of how this is useful:
+这是如何有用的例子:
 
-* Make internet content available in places that don't have direct connections to the internet backbone \(remote locations with limited connectivity, space stations\)
-* Circumvent censorship by governments, corporations and overbearing parents.
+* 在没有直接连接到internet主干网的地方(连接有限的偏远地点，空间站)提供internet内容
+* 规避政府、公司和专横的审查。
 
-For this example we will pretend you're using an external drive to move a snapshot of wikipedia from IPFS to a new network where wikipedia isn't available.
+对于本例，我们假设你正在使用一个外部驱动器将wikipedia的快照从IPFS移动到wikipedia不可用的一个新网络中。
 
-## Prerequisites
+## 先决条件
 
-To do the steps in this lesson you must:
+要做到这一课的步骤，你必须:
 
-* Be familiar with using the command line
-* [Install and Initialize IPFS](../install-ipfs/) on your local machine
+* 熟悉使用命令行
+* 在本地机器上安装和初始化IPFS
 
-## Goals
+## 目标
 
-After doing this Lesson you will know how to physically move IPFS content across an airgap, making it available over IPFS and HTTP on the other side.
+学习完本课程后，你将知道如何物理地跨网络移动IPFS内容，使其在另一端通过IPFS和HTTP可用。
 
-## Steps
+## 步骤
 
-### Step 1: Download the content you want to move, plus a copy of IPFS
+### 步骤1:下载你想要移动的内容，以及IPFS的副本
 
-Use `ipfs get` command to download the content you want to move across networks. In this example, we download a complete snapshot of Wikipedia archive to disk, saving it as a folder called `WikipediaSnapshot` _\(Warning: this snapshot is 15 GB. You might want to use something smaller\)_:
+使用`ipfs get`命令下载你想跨网络移动的内容。在本例中，我们将Wikipedia归档的一个完整快照下载到磁盘，并将其保存为一个名为WikipediaSnapshot的文件夹(警告:此快照为15 GB，你可能想用小一点的):
 
 ```bash
 $ ipfs get Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/Anasayfa.html -o WikipediaSnapshot
 ```
 
-Download the latest IPFS binaries into your drive too. You will need this in order to publish the content on the other side. Make sure to download the appropriate go-ipfs binary for the computer you will be moving the data to. _Note: there might be a newer version of ipfs available when you read this. Find out the most current version number at_ [https://dist.ipfs.io/\#go-ipfs](https://dist.ipfs.io/#go-ipfs)
+还可以将最新的IPFS二进制文件下载到你的驱动器中。为了在另一边发布内容，你将需要这个。确保为要将数据移动到的计算机下载了适当的go-ipfs二进制文件。注意:当你阅读本文时，ipfs可能有一个更新版本。在[https://dist.ipfs.io/\#go-ipfs](https://dist.ipfs.io/#go-ipfs)可以找到最新的版本号
 
 ```bash
 $ ipfs get /ipns/dist.ipfs.io/go-ipfs/v0.4.8 -o go-ipfs-v0.4.8
 ```
 
-### Step 2: Copy the files to your external drive
+### 步骤2:复制文件到你的外部驱动器
 
-* Copy the snapshot \(ie. the folder "WikipediaSnapshot"\) to your external drive
-* Copy the IPFS binaries you downloaded \(ie. the folder "go-ipfs-v0.4.8"\) into your external drive
+* 复制快照(即文件夹“WikipediaSnapshot”)到你的外部驱动器
+* 将下载的IPFS二进制文件(即文件夹“go-ipfs-v0.4.8”)复制到你的外部驱动器
 
-### Step 3: Move to the next computer
+### 步骤3:转到下一台电脑
 
-* Eject your external drive
-* Physically carry your external drive to the next computer you want to use the information from.
+* 弹出你的外部驱动器
+* 将你的外部驱动器实际携带到你想要使用该信息的下一台计算机。
 
-### Step 4: Install IPFS on the next computer and load the content
+### 步骤4:在下一台计算机上安装IPFS并加载内容
 
-First Install and initialize the IPFS binary on the new computer. The instructions in [the installation tutorial](../install-ipfs/) might help.
+首先在新计算机上安装并初始化IPFS二进制文件。[安装教程](../install-ipfs/)中的说明可能会有所帮助。
 
-Then import the data into ipfs \(in this case, the folder called `WikipediaSnapshot`\)
+然后将数据导入ipfs(在本例中，是名为`WikipediaSnapshot`的文件夹)
 
 ```bash
 $ ipfs add -r WikipediaSnapshot
 ```
 
-### Step 5: Confirm that the content is now available on the new computer
+### 步骤5:确认内容现在在新计算机上可用
 
-Start the ipfs daemon:
+启动ipfs daemon:
 
 ```bash
 ipfs daemon
 ```
 
-The snapshot link should now work: [http://localhost:8080/ipfs/Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/Anasayfa.html](http://localhost:8080/ipfs/Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/Anasayfa.html)
+快照链接现在应该可以工作了: [http://localhost:8080/ipfs/Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/Anasayfa.html](http://localhost:8080/ipfs/Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/Anasayfa.html)
 
-## Explanation
+## 解释
 
-This approach allows you to physically move IPFS content into networks where it was previously unavailable.
+这种方法允许你物理地将IPFS内容移动到以前不可用的网络中。
 
-Because IPFS uses content-addressing, as long as the content you added to the second network is identical to the original content you originally exported from IPFS, the IPFS identifier for your content will be identical in both networks.
+因为IPFS使用内容寻址，所以只要添加到第二个网络的内容与最初从IPFS导出的原始内容相同，那么内容的IPFS标识符在两个网络中都是相同的。
 
-## Next Steps
+## 接下来的步骤
 
-Return to the [Tutorial on The Myriad Ways to Access and Distribute IPFS Content](./) to learn about the many other ways you can use IPFS to access the same content using the same content-addressed link.
+返回[关于访问和分发IPFS内容的各种方法的教程](./)，了解使用IPFS使用相同内容寻址的链接访问相同内容的许多其他方法。
 
-Next, proceed to the [Making Changes on the Permanent Web](../publishing-changes/) tutorial.
+接下来，继续学习教程[对永久性Web进行更改](../publishing-changes/)。
 
