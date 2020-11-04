@@ -1,18 +1,18 @@
-# Lesson: View Your Webpage with IPFS and Publish to IPNS
+# 课程:用IPFS查看你的网页并发布到IPNS上
 
-This lesson shows you how to view a simple webpage which you added to IPFS, and then how to publish that webpage to IPNS.
+这节课将向你展示如何查看添加到IPFS中的一个简单网页，以及如何将该网页发布到IPNS中。
 
-## Goals
+## 目标
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* View the simple webpage you created earlier and publish it to IPNS
+* 查看你之前创建的简单网页，并将其发布到IPNS
 
-## Steps
+## 步骤
 
-### Step 1: View your webpage using the IPFS hash
+### 步骤1:使用IPFS哈希查看你的网页
 
-When you ran the command `ipfs add -r simple-webpage/` in the previous lesson, your output was similar to this:
+当你在上一课中运行`ipfs add -r simple-webpage/`命令时，你的输出如下:
 
 ```bash
 added Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u simple-webpage/cat.jpg
@@ -21,52 +21,52 @@ added QmZhCL5rkWjH4MotDxKHUDaUESEKhTxSE7Xr16zwe59sjT simple-webpage
  432.98 KiB / 432.98 KiB [=============================================] 100.00%
 ```
 
-The IPFS hash on the last line is the hash you will use to view your webpage. Note that your own hash may be different. Use your IPFS hash and open your webpage in the browser like so:
+最后一行的IPFS哈希是用于查看网页的哈希。注意，你自己的哈希可能不同。使用你的IPFS哈希并在浏览器中打开你的网页，如下所示:
 
 `https://ipfs.io/ipfs/your-webpage-hash`
 
-You should see the "Nice Kitty" webpage from the previous lesson.
+你应该看到上一课的“漂亮猫咪”网页。
 
-### Step 2: Publish your webpage to IPNS
+### 步骤2:发布你的网页到IPNS
 
-Wonderful, now you have your webpage available via IPFS. But suppose you have decided to make a change to this webpage? The IPFS hash above will only ever point to this first version of your webpage. By using IPNS \(the InterPlanetary Name System\), you can create a hash that will not change, but you will make it point to your changing content found within IPFS. The IPNS hash will be tied to your Peer ID, and any changes in the future will also be tied to your Peer ID.
+太棒了，现在你可以通过IPFS访问你的网页了。但假如你决定修改这个网页呢?上面的IPFS哈希只会指向你的网页的第一个版本。通过使用IPNS(星际名称系统)，你可以创建一个不会改变的哈希，但是你将使它指向IPFS中更改的内容。IPNS哈希将绑定到你的Peer ID，未来的任何更改也将绑定到你的Peer ID。
 
-Run the following command \(using your webpage hash\) to publish to IPNS:
+运行以下命令(使用你的网页哈希)发布到IPNS:
 
 ```bash
 $ ipfs name publish your-webpage-hash
 ```
 
-You should see output like the following:
+你应该看到如下所示的输出
 
 ```bash
 Published to QmRX....xQTp: (your peer id)
 /ipfs/QmZh....your-webpage-hash....9sjT
 ```
 
-Note that the hash on the first line will be your Peer ID. Using IPNS, you have tied your Peer ID to the webpage that you added to IPFS earlier. You can confirm that your Peer ID is tied to that IPFS entry with the following command:
+请注意，第一行的哈希将是你的Peer ID。使用IPNS时，你已经将Peer ID绑定到先前添加到IPFS的网页上。你可以使用以下命令确认你的Peer ID绑定到该IPFS条目:
 
 ```bash
 $ ipfs name resolve your-peer-id
 ```
 
-You should see output like the following:
+你应该看到如下所示的输出
 
 ```bash
 /ipfs/your-webpage-hash
 ```
 
-Now you will be able to view the webpage using an IPNS link with your Peer ID:
+现在，你将能够使用你的Peer ID的一个IPNS链接来查看该网页:
 
 `https://ipfs.io/ipns/your-peer-id`
 
-Note how the URL changes from `/ipfs/` to `/ipns/` once you publish to IPNS.
+请注意，一旦发布到IPNS, URL是如何从`/ipfs/`更改为`/ipns/`的。
 
-## Explanation
+## 解释
 
-The IPFS hash for your webpage will always point to the exact same content, this is one of the fundamental ideas of the "Permanent Web". If you make changes to your webpage, then your new IPFS content will have a different hash. If you use IPNS to tie your webpage to your Peer ID, then you can make changes to your webpage and publish your URL using the IPNS hash.
+网页的IPFS哈希总是指向完全相同的内容，这是“永久Web”的基本理念之一。如果你更改了你的网页，那么你的IPFS新内容将有一个不同的哈希。如果你使用IPNS将你的网页与你的Peer ID绑定，那么你可以对你的网页进行修改并使用IPNS哈希发布你的URL。
 
-## Next Steps
+## 接下来的步骤
 
-Proceed to the next lesson to learn how to [Modify Your Webpage and Republish to IPNS](modify-republish.md)
+继续下一课，学习如何[修改你的网页并重新发布到IPNS](modify-republish.md)
 
