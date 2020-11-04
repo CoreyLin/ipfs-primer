@@ -1,106 +1,105 @@
-# The Power of Content-addressing
+# 内容寻址的力量
 
-## Goals
+## 目标
 
-This lesson introduces the concept of _content addressing_ and explores the powerful implications of using this approach.
+这节课介绍了 _内容寻址_ 的概念，并探讨了使用这种方法的强大含义。
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Define _content addressing_ and compare it with _location-addressing_
-* Explain the implications of being able to access IPFS content through so many different paths
+* 定义 _内容寻址_ ，并将其与 _位置寻址_ 进行比较
+* 解释能够通过这么多不同路径访问IPFS内容的含义
 
-## Explanation
+## 解释
 
-### The Problem: Identifying Content by its Location
+### 问题:根据位置识别内容
 
-When you use an `http://` or `https://` link to point to a webpage, image, spreadsheet, dataset, tweet, etc, you're identifying content by its location. The link is an identifier that points to a particular location on the web, which corresponds to a particular server, or set of servers, somewhere on the web. **Whoever controls that location controls the content.** That's how HTTP works. It's _location-addressed_. Even if a thousand people have downloaded copies of a file, meaning that the content exists in a thousand locations, HTTP points to a single location. This location-addressed approach forces us all to pretend that the data are in only one location. Whoever controls that location decides what content to return when people use that link. They also decide whether to return any content at all.
+当你使用`http://`或`https://`链接指向一个网页、图像、电子表格、数据集、tweet等时，你是根据其位置识别内容。这个链接是指向web上某个特定位置的一个标识符，该位置对应于web上某个地方的某个特定服务器或一组服务器。**谁控制了这个位置，谁就控制了内容。**这就是HTTP的工作原理。它是位置寻址的。即使有一千个人下载了一个文件的副本，这意味着内容存在于一千个位置，HTTP也指向一个位置。这种位置寻址的方法迫使我们都假装数据只在一个位置上。谁控制了这个位置，谁就决定了当人们使用这个链接时返回什么内容。他们还决定是否返回任何内容。
 
-To get a sense of how impractical it is to address content by its location, imagine if I used location-addressing to recommend the book [Why Information Grows](http://www.goodreads.com/book/show/20763722-why-information-grows).
+要了解通过位置来定位内容是多么不切实际，想象一下如果我使用位置寻址来推荐[为什么信息会增长](http://www.goodreads.com/book/show/20763722-why-information-grows)这本书。
 
-If I identify the book by its content, saying "Check out the book called _Why Information Grows_ by César Hidalgo. The ISBN is 0465048994.", you will be able to get any copy of the book from any source and know that you're reading the information I recommended. You might even say "Oh. I already read it." or "My roommate has it in the other room. I'll borrow it from him.", saving yourself the cost or effort of getting another copy.
+如果我根据内容来识别这本书，说“Check out the book called Why Information Grows by César Hidalgo. The ISBN is 0465048994.”，你可以从任何渠道获得这本书的任何副本，并且知道你正在阅读我推荐的信息。你甚至可能会说“哦，我已经看过了。”或者“我的室友在另一个房间有这本书。我要向他借这本书。”这样你就不必再花钱或费力气去找另一本副本了。
 
-By contrast, if I used location-addressing to identify the book, I would have to point to a location, saying something like "Go to the news stand at Market & 15th in Philadelphia and ask for the thing 16 inches from the south end of the third shelf on the east wall" Those instructions are confusing and awkward, but that is how http links work. They identify content by its location and they rely on the 'host' at that location to provide the content to visitors. There are lots of things that could go wrong with this approach. It also puts a lot of power and responsibility on the shoulders of whoever controls the location you're pointing to - in this case the news stand.
+相比之下,如果我用位置寻址来识别这本书,我就会指向一个位置,说一些像“Go to the news stand at Market & 15th in Philadelphia and ask for the thing 16 inches from the south end of the third shelf on the east wall”的话，这些指令是令人困惑和尴尬的,但这就是http链接工作的方式。它们根据位置来识别内容，并依赖于该位置的“主机”为访问者提供内容。这种方法可能会出现很多问题。它还赋予了控制你所指向位置的人很大的权力和责任——在这里是指报刊亭。
 
-Let's consider the responsibilities of whoever controls the location we've pointed to. If the people running the news stand want my directions \(aka. my "link"\) to remain valid, allowing people to access the book, they have to:
+让我们考虑一下控制我们所指向的位置的人的责任。如果经营报摊的人想要我的指示(我的“link”)保持有效，允许人们访问这本书，他们必须:
 
-* Always be open, 24/7, in case someone wants to read the book.
-* Provide the book to _everyone_ who seeks the book, whether it's one person or hundreds of thousands of people.
-* Protect the integrity of the book by preventing anyone from tampering with it.
-* Never remove the book from its shelf - if they get rid of it, or even move it, my link is broken and nobody will be able to use my instructions to find the book.
+* 7*24小时保持开放，以防有人想读这本书。
+* 把这本书提供给每一个想要这本书的人，无论是一个人还是成千上万的人。
+* 保护这本书的完整性，防止任何人篡改它。
+* 永远不要把书从书架上拿下来 - 如果他们扔掉它，甚至移动它，我的链接就坏了，没有人能按照我的指示找到这本书。
 
-Along with those responsibilities come a great amount of power. The proprietors of the news stand control the location that my directions point to, so they can choose to:
+伴随这些责任而来的是巨大的权力。报刊亭的业主可以控制我的指示指向的位置，所以他们可以选择:
 
-* Dictate who is allowed to see the book.
-* Move the book without telling anyone.
-* Destroy the book.
-* Charge people money to access the book or force them to watch ads when they walk in the door.
-* Collect data about everyone who accesses my book, using that information however they want.
-* Replace the book with something else -- They might not even put a book there, since my instructions are just describing a location, a malicious actor could replace the book with something dangerous, turning the location into a trap!
+* 决定允许谁看这本书。
+* 不要告诉任何人就把书移动。
+* 破坏这本书。
+* 向读者收费，或者强迫他们在进门时观看广告。
+* 收集每个访问我的书的人的数据，使用他们想要的任何信息。
+* 把这本书换成别的东西——他们甚至可能不会把一本书放在那里，因为我的指示只是描述一个位置，一个恶意的参与者可能会把书换成一些危险的东西，从而把这个位置变成一个陷阱!
 
-Location-addressing has worked on the web for 25 years, but it's starting to get painful and It's about to get much worse. As long as we continue to rely on it, the web will continue to be unstable, insecure, and prone to manipulation or exploitation.
+位置寻址已经在网络上工作了25年，但它开始变得痛苦，而且它将变得更糟。只要我们继续依赖它，网络就会继续不稳定、不安全，并容易被操纵或利用。
 
-### The Solution: Identify Information by its Fingerprint, not its Location
+### 解决方案:通过指纹识别信息，而不是位置
 
-The alternative is to identify content by its "fingerprint" rather than identifying it by its location. That way, when someone says "Look at the content with this fingerprint" you can get it from anyone who has a copy of the content. To do this, we identify content by its cryptographic hash. A cryptographic hash is a short string of letters and numbers that's calculated by feeding your content into a _cryptographic hash function_ like [SHA](https://en.wikipedia.org/wiki/SHA-3).
+另一种方法是通过“指纹”来识别内容，而不是通过位置来识别内容。这样，当有人说“用这个指纹查看内容”时，你就可以从任何拥有该内容的一个副本的人那里获得它。为此，我们通过它的加密哈希标识内容。一个加密哈希是一个由字母和数字组成的短字符串，通过将内容输入到[SHA](https://en.wikipedia.org/wiki/SHA-3)这样的一个 _加密哈希函数_ 中来计算。
 
-When we identify content in this way, using the content's cryptographic hash instead of its location to identify it, this is called _content-addressing_. The cryptographic hash for a piece of content never changes, which means **content addressing guarantees that the links will always return the same content**, regardless of _where_ I retrieve the content from, regardless of _who_ added the content to the network, and regardless of when the content was added. That's the essential power of using a _content-addressed_ protocol like IPFS instead of using a _location-addressed_ protocol like HTTP.
+当我们以这种方式标识/识别内容时，使用内容的加密哈希而不是其位置来标识/识别内容，这称为 _内容寻址_ 。一块内容的加密哈希永远不会改变，这意味着**内容寻址保证链接将始终返回相同的内容**，无论我从哪里检索内容，无论是谁将内容添加到网络，也无论内容是何时添加的。这就是使用一个 _内容寻址_ 协议(如IPFS)而不是使用一个 _位置寻址_ 协议(如HTTP)的基本功能。
 
-### The Implications of Content Addressing
+### 内容寻址的含义
 
-**Content-addressed links are permanent.** The link permanently points to _exactly_ that content. This has many powerful implications. From a computer science perspective, any time we create data that uses content-addressed links, we are creating a [persistent data structure](https://en.wikipedia.org/wiki/Persistent_data_structure). There is a great amount of literature on the applications for persistent data structures. For this lesson, we will call out just a few implications of _storing_ and _sharing_ data using a content-addressed protocol:
+**以内容寻址的链接是永恒不变的。**链接永久地指向该内容。这有许多强大的含义。从计算机科学的角度来看，每当我们创建使用内容寻址的链接的数据时，我们都在创建一个[持久化的数据结构](https://en.wikipedia.org/wiki/Persistent_data_structure)。关于持久化数据结构的应用程序有大量的文献。在本课中，我们将指出使用一个内容寻址协议存储和共享数据的一些含义:
 
-#### It lets us store data together.
+#### 它让我们一起存储数据。
 
-This decentralized, content-addressed approach radically increases the durability of data. It ensures that data will not become endangered as long as anyone is still relying on it because anyone can hold a valid copy of the data they care about. If you hold a copy of a dataset on any of your devices, or if you pay someone to host it on an IPFS node for you, you become part of the network of stewards who protect that dataset from being lost. You won't have to worry about whether someone is going to turn off the servers where your data are hosted because _you are one of the hosts_. You and your peers hold the data among yourselves and are able to share the data directly with each other without relying on centralized points of failure.
+这种去中心化的、内容寻址的方法从根本上增加了数据的持久性。它确保只要任何人仍然依赖数据，数据就不会受到威胁，因为任何人都可以持有自己关心的数据的一个有效副本。如果你在你的任何设备上持有一个数据集的副本，或者如果你花钱让某人为你在一个IPFS节点上托管它，那么你就成为保护数据集不丢失的管理员网络的一部分。你不必担心是否有人会关闭托管你数据的服务器，因为你是其中一个主机。你和你的peers之间持有数据，并能够直接共享数据，而不依赖于中心化故障点。
 
-#### It increases the integrity of data.
+#### 它增加数据的完整性。
 
-Decentralization also increases the integrity of data because links are content-addressed. This means we can validate data by checking the data's fingerprints against the links. That kind of validation is impossible with location-addressed links. This is especially powerful on the large scale, where millions of websites and datasets reference each other billions of times. With location-addressed links, all of those connections are brittle. With content-addressed links, the connections become resilient and reliable.
+去中心化还增加了数据的完整性，因为链接是内容寻址的。这意味着我们可以通过根据链接检查数据的指纹来验证数据。对于位置寻址的链接，这种验证是不可能的。这在大规模的情况（数百万的网站和数据集相互引用数十亿次）下尤其强大。对于位置寻址的链接，所有这些连接都很脆弱。通过内容寻址的链接，连接变得有弹性和可靠。
 
-#### Links can come back to life.
+#### 链接可以恢复生机。
 
-**As soon as any node has the content, everyone's links start working.** Even if someone destroys all the copies on the network, it only takes one node adding the content in order to restore availability. A cryptographic hash _permanently_ points to the content it was derived from, so IPFS links permanently point to their content. Even if the content becomes unavailable for a period, the links will work as soon as anyone starts providing the content again.
+**只要任何节点有了内容，每个节点的链接就开始工作。**即使有人破坏了网络上的所有副本，也只需要一个节点添加内容就可以恢复可用性。一个加密哈希永久地指向它所派生的内容，因此IPFS链接永久地指向它们的内容。即使内容在一段时间内不可用，只要有人再次开始提供内容，链接就会工作。
 
-#### Harder to attack, easier to recover.
+#### 更难攻击，更容易恢复。
 
-**Even if the original publisher is taken down, the content can be served by anyone who has it.** As long as at least one node on the network has a copy of the content, everyone will be able to get it. This means the responsibility for serving content can change over time without changing the way people link to the content and without any doubt that the content you're reading is exactly the content that was originally published.
+**即使原始发布者被移除，任何拥有这些内容的人都可以提供这些内容。**只要网络上至少有一个节点拥有该内容的一个副本，每个人都可以获得它。这意味着，提供内容的责任可以随着时间的推移而改变，但不会改变人们链接到内容的方式，而且毫无疑问，你正在阅读的内容正是最初发布的内容。
 
-**The content you download is cryptographically verified** to ensure that it hasn’t been tampered with.
+**你下载的内容经过密码学验证**，以确保它没有被篡改。
 
-**IPFS can work in partitioned networks** - you don’t need a stable connection to the rest of the web in order to access content through IPFS. As long as your node can connect to at least one node with the content you want, it works!
+**IPFS可以在分区网络中工作** - 通过IPFS访问内容不需要与web的剩余部分有稳定的连接。只要你的节点可以连接到至少一个拥有你所需内容的节点，它就可以工作!
 
-**If one IPFS gateway gets blocked, you can use another one.** IPFS gateways are all capable of serving the same content, so you’re not stuck relying on one point of failure.
+**如果一个IPFS网关被阻塞，你可以使用另一个网关**。IPFS网关都能够提供相同的内容，因此你不必依赖于一个故障点。
 
-**Lightening the load**: With IPFS, people viewing the content are also helping distribute the content \(unless they opt out\) and anyone can choose to pin a copy of some content on their node in order to help with access and preservation.
+**减轻负载**:有了IPFS，浏览内容的人也在帮助分发内容(除非他们选择退出)，而且任何人都可以选择在自己的节点上pin一些内容的副本，以帮助访问和保存。
 
-**You can read anonymously.** As with HTTP, IPFS can work over Tor and other anonymity systems
+**你可以匿名阅读。**与HTTP一样，IPFS可以在Tor和其他匿名系统上工作
 
-**IPFS does not rely on DNS**. If someone blocks your access to DNS or spoofs DNS in your network, it will not prevent IPFS nodes from resolving content over the peer-to-peer network. Even if you're using the DNSlink feature of IPFS, you just need to find a gateway that _does_ have access to DNS. As long as the gateway you're relying on has access to DNS it will be able to resolve your DNSlink addresses.
+**IPFS不依赖DNS。**如果有人阻止你访问DNS或欺骗你的网络中的DNS，它不会阻止IPFS节点通过点对点网络解析内容。即使你使用的是IPFS的DNSlink特性，你也只需要找到一个能够访问DNS的网关。只要你所依赖的网关能够访问DNS，它就能够解析你的DNSlink地址。
 
-**IPFS does not rely on the Certificate Authority System**, so bad or corrupt Certificate Authorities do not impact it.
+**IPFS不依赖于证书颁发机构（CA）系统**，所以坏的或腐败的证书颁发机构不会影响它。
 
-**You can move content via** [**sneakernet**](https://en.wikipedia.org/wiki/Sneakernet)**!** _This is very useful in areas with poor connectivity, due to resource limitations, security reasons, or censorship._ Even if your network is physically disconnected from the rest of the internet, you can write content from IPFS onto USB drives or other external drives, physically move them to computers connected to a new network, and re-publish the content on the new network. Even though you're on a separate network, IPFS will let nodes access the content using the same identifiers in both networks as long as at least one node on the network has that content.
+**你可以通过[sneakernet](https://en.wikipedia.org/wiki/Sneakernet)移动内容**!这对于由于资源限制、安全原因或审查而导致连接不良的地区非常有用。即使你的网络在物理上与internet的其余部分断开了连接，你也可以将IPFS中的内容写入USB驱动器或其他外部驱动器，将它们物理地移动到连接到新网络的计算机上，并在新网络上重新发布内容。即使你在一个隔离的网络上，只要这个网络上至少有一个节点拥有该内容，IPFS将允许节点使用两个网络中的相同标识符访问该内容。
 
-**IPFS nodes work hard to find each other on the network** and to reconnect with each other after connections get cut.
+**IPFS节点努力在网络上找到彼此**，并在连接被切断后重新连接。
 
-\(experimental\) **You can even form private IPFS networks** to share information _only_ with computers you've chosen to connect with.
+(试验性的)**你甚至可以形成私有IPFS网络**，只与你选择连接的计算机共享信息。
 
-## Further Reading
+## 进一步阅读
 
-Further light Reading:
+进一步阅读:
 
-* [HTTP is obsolete. It's time for the distributed, permanent web](https://ipfs.io/ipfs/QmNhFJjGcMPqpuYfxL62VVB9528NXqDNMFXiqN5bgFYiZ1/its-time-for-the-permanent-web.html)
-* [Instructions for Saving Endangered Data](https://github.com/ipfs/community/blob/master/articles/endangered-data.md)
+* [HTTP过时了。是时候使用分布式的、永久的web了](https://ipfs.io/ipfs/QmNhFJjGcMPqpuYfxL62VVB9528NXqDNMFXiqN5bgFYiZ1/its-time-for-the-permanent-web.html)
+* [保存濒危数据的说明](https://github.com/ipfs/community/blob/master/articles/endangered-data.md)
 
-Videos to Watch:
+观看视频:
 
-* [this part of a talk by Juan Benet talk](https://youtu.be/2RCwZDRwk48?t=847)
+* [这是Juan Benet的演讲](https://youtu.be/2RCwZDRwk48?t=847)
 
-Academic Papers:
+学术论文:
 
-* [The IPFS Whitepaper](https://github.com/ipfs/papers/raw/master/ipfs-cap2pfs/ipfs-p2p-file-system.pdf)
+* [IPFS白皮书](https://github.com/ipfs/papers/raw/master/ipfs-cap2pfs/ipfs-p2p-file-system.pdf)
 
-## Next Steps
+## 接下来的步骤
 
-Read the [Tutorial on The Myriad Ways to Access and Distribute IPFS Content](./) to learn about the many different ways you can use IPFS to access the same content using the same content-addressed link.
-
+阅读[有关访问和分发IPFS内容的多种方法的教程](./)，了解使用IPFS使用相同内容寻址链接访问相同内容的多种不同方法。
