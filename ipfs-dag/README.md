@@ -1,21 +1,21 @@
-# Tutorial: Merkle Trees and the IPFS DAG
+# 教程：Merkle树和IPFS DAG
 
-## Concepts
+## 概念
 
-These Lessons introduce the following concepts:
+这些课程介绍了以下概念:
 
-* Cryptographic Hashes and Content Addressability
-* Authenticated Graphs
-* Turning Files into Trees
-* Turning any Data into Trees
-* Publishing hashes on the DHT
-* Getting data from the Peer to Peer Network
+* 密码哈希和内容可寻址性
+* 验证图（Authenticated Graphs）
+* 将文件转换为树
+* 将任何数据转换为树
+* 在DHT上发布hashes
+* 从点对点网络获取数据
 
-## Prerequisites
+## 先决条件
 
-## Lessons
+## 课程
 
-1. [Lesson: Turn a File into a Tree of Hashes](files-as-dags.md)
-2. [Lesson: The Cryptographic Hash](crypto-hash.md)
-3. [Lesson: Build a Tree of Data in IPFS Using Cryptographic Hashes to Link the Pieces \(a Merkle DAG\)](blocks-from-scratch.md)
+1. [课程:把一个文件转换为一个哈希树](files-as-dags.md)
+2. [课程:密码哈希](crypto-hash.md)
+3. [课程:在IPFS中使用加密哈希来连接片段(一个Merkle DAG)构建一颗数据树](blocks-from-scratch.md)
 
