@@ -1,36 +1,36 @@
-# Tutorial: Making Changes on the Permanent Web
+# 教程:在永久的Web上进行更改
 
-These Lessons are tested with go-ipfs version 0.5.0. _Please update this file on github to reflect any other versions that have been tested._
+这些课程使用go-ipfs版本0.5.0进行了测试。请在github上更新这个文件，以反映已经测试过的其他版本。
 
-## Prerequisites
+## 先决条件
 
-## Learning Objectives
+## 学习目标
 
-These Lessons will teach you how to
+这些课程会教你如何
 
-* Update Files on IPFS using IPNS \(InterPlanetary Name System\)
-* Explain how version histories of files appear on IPFS
-* Explain why IPFS is called the Permanent Web
-* Track and Publish an entire website as it changes over time using IPFS and IPNS
+* 使用IPNS(InterPlanetary Name System，星际名称系统)更新IPFS文件
+* 解释文件的版本历史是如何在IPFS上显示的
+* 解释为什么IPFS被称为永久Web
+* 使用IPFS和IPNS跟踪和发布一个整个网站随时间的变化
 
-## Key Concepts
+## 关键概念
 
 * IPNS
-* The Permanent Web
-* Using hashes to uniquely identify versions of content
+* 永久Web
+* 使用哈希来唯一地标识内容的版本
 
-## Conceptual Framework
+## 概念框架
 
-Normally, updating content means replacing a file - for instance, if I update a blog post, then people will see the new edited file, and not the old one. However, with IPFS, both versions of the file will be accessible in the network. It's not a matter of replacing: you add the new one, too. This raises the question: how do we actually update our links, so that people will see the new version of a file? They can't go to the file's location, because IPFS locates files by looking for their hashes \(that's what content-addressed means\). So, you need to have a way of pointing people to the new hash easily.
+通常情况下，更新内容意味着替换一个文件 - 例如，如果我更新了一篇博客文章，那么人们将看到新的编辑过的文件，而不是旧的。但是，使用IPFS，文件的两个版本都可以在网络中访问。这不是替换的问题:你添加了一个新的。这就提出了一个问题:我们实际如何更新我们的链接，以便人们能够看到文件的新版本?它们无法到达文件的位置，因为IPFS通过查找哈希来定位文件(这就是内容寻址的意思)。所以，你需要有一种方法来轻松地将人们指向新的哈希。
 
-The trick is to add new the content, and then update a pointer to that content. So, there needs to be a way of having a mutable pointer.
+诀窍是添加新的内容，然后更新指向该内容的一个指针。因此，需要有一种方法来拥有一个可变指针。
 
-This is where IPNS comes in, the InterPlanetary Name System. IPNS is a simple service that uses your peer ID to point to a particular hash. This hash can change, but your peer ID doesn't. That means that you can point to content in IPFS that may also change, and people can still access it without needing to know the new hash before hand.
+这就是IPNS的用处所在，即星际名称系统。IPNS是一个简单的服务，它使用你的peer ID指向一个特定的哈希。这个哈希可以更改，但peer ID不会更改。这意味着你可以指向IPFS中可以更改的内容，而且人们仍然可以访问它，而不需要事先知道新的哈希。
 
-## Lessons
+## 课程
 
-1. [Lesson: Create a Simple Webpage and Add It to IPFS](create-webpage.md)
-2. [Lesson: View Your Webpage with IPFS and Publish to IPNS](view-and-publish.md)
-3. [Lesson: Modify Your Webpage and Republish to IPNS](modify-republish.md)
-4. [Lesson: Generate and Use a New IPNS Name Keypair](generate-keypair.md)
+1. [课程:创建一个简单的网页并将其添加到IPFS中](create-webpage.md)
+2. [课程:用IPFS查看你的网页并发布到IPNS上](view-and-publish.md)
+3. [课程:修改你的网页并重新发布到IPNS](modify-republish.md)
+4. [课程:生成和使用一个新的IPNS名称Keypair](generate-keypair.md)
 
