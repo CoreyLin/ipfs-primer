@@ -1,30 +1,30 @@
-# Lesson: Generate and Use a New IPNS Name Keypair
+# 生成和使用一个新的IPNS名称Keypair
 
-This lesson shows you how to generate an new name keypair and use it to publish a different IPNS webpage than your original Peer ID.
+本课将向你展示如何生成一个新的名称keypair，并使用它发布一个与你的原始Peer ID不同的IPNS页面。
 
-## Goals
+## 目标
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Generate a new name keypair and use it along with IPNS.
+* 生成一个新的名称keypair，并将其与IPNS一起使用。
 
-## Steps
+## 步骤
 
-### Step 1: Generate a new name keypair
+### 步骤1:生成一个新的名称keypair
 
-Imagine that you want to create a new name keypair called "trains". Run the following command:
+假设你想要创建一个名为“trains”的新名称keypair。运行以下命令:
 
 ```bash
 $ ipfs key gen --type=rsa --size=2048 trains
 ```
 
-Output should be a hash similar to the following:
+输出应该是类似于下面的哈希
 
 ```bash
 QmexZbauipkBBrV8vZv8WjeYe8F7ojCm4UZXuAhxk5vFF1
 ```
 
-Now you might list the keys that you have on your local node:
+现在你可以列出你在本地节点上的密钥:
 
 ```bash
 $ ipfs key list
@@ -32,11 +32,11 @@ self
 trains
 ```
 
-Note that "self" is the default name for the keypair of your Peer ID. This keypair is used when you `ipfs name publish` without specifying the name.
+注意，“self”是你的Peer ID的密钥对的默认名称。这个密钥对在你`ipfs name publish`而没有指定名称时使用。
 
-### Step 2: Create new webpage directory and content
+### 步骤2:创建新的网页目录和内容
 
-Create a new webpage directory in your user's home directory for trains.
+在用户的家目录中为trains创建一个新的网页目录。
 
 ```bash
 $ cd ~  (or cd %userprofile% on Windows)
@@ -44,14 +44,14 @@ $ mkdir trains-webpage
 $ cd trains-webpage/
 ```
 
-Download 2 train images using ipfs:
+使用ipfs下载2张火车图片
 
 ```bash
 $ ipfs cat QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/I/m/MNRR_maintenance_train_at_Beacon.jpg > train1.jpg
 $ ipfs cat QmXoypizjW3WknFiJnKLwHCnL72vedxjQkDDP1mXWo6uco/I/m/New_Jersey_Transit_train_53_to_Port_Jervis.jpg > train2.jpg
 ```
 
-Using a text editor, create a file called `index.html` and copy/paste the following content:
+使用一个文本编辑器，创建一个名为`index.html`的文件，并复制/粘贴以下内容
 
 ```bash
 <!DOCTYPE html>
@@ -67,20 +67,20 @@ Using a text editor, create a file called `index.html` and copy/paste the follow
 </html>
 ```
 
-Save `index.html` in the `trains-webpage` directory and close the text editor. If you like, you may open `index.html` in the browser to see the webpage.
+在`trains-webpage`目录中保存`index.html`并关闭文本编辑器。如果你愿意，你可以在浏览器中打开`index.html`来查看网页。
 
 ![](../.gitbook/assets/trains.jpg)
 
-### Step 3: Add your webpage to IPFS and IPNS
+### 第三步:将你的网页添加到IPFS和IPNS中
 
-Now you can add your `trains-webpage` directory to IPFS
+现在你可以将你`trains-webpage`目录添加到IPFS中
 
 ```bash
 $ cd ..
 $ ipfs add -r trains-webpage/
 ```
 
-You should see output like the following:
+你应该看到如下所示的输出
 
 ```bash
 added QmWq1TLwLiem1R66oDGeqgvNhVqMQp2pTH45ccMDKgqiSD trains-webpage/index.html
@@ -90,36 +90,36 @@ added QmTVgwpmruEWN8Dyx71FnBzymxfs8B5qV9Wuy8W4NZehPB trains-webpage
  13.97 KiB / 13.97 KiB [===============================================] 100.00%
 ```
 
-You now know from the earlier lessons that you can view your webpage by using the hash from the last line above \(Note that your own hash may be different\):
+从前面的课程中，你知道你可以使用上面最后一行的哈希来查看你的网页(注意，你自己的哈希可能会不同):
 
 `https://ipfs.io/ipfs/QmTVgwpmruEWN8Dyx71FnBzymxfs8B5qV9Wuy8W4NZehPB`
 
-Now you can publish your trains webpage to IPNS **using your new "trains" keypair** with the hash of the trains-webpage/ directory:
+现在，你可以 **使用新的“trains”密钥对** 和trains-webpage/目录的哈希来将你的trains网页发布到IPNS上:
 
 ```bash
 $ ipfs name publish --key=trains QmTVgwpmruEWN8Dyx71FnBzymxfs8B5qV9Wuy8W4NZehPB
 ```
 
-You should see output like the following:
+你应该看到如下所示的输出
 
 ```bash
 Published to QmexZbauipkBBrV8vZv8WjeYe8F7ojCm4UZXuAhxk5vFF1:
 /ipfs/QmTVgwpmruEWN8Dyx71FnBzymxfs8B5qV9Wuy8W4NZehPB
 ```
 
-Note that the "Published to" hash above is the new name keypair "trains" hash that you created at the top of this page.
+请注意，上面的“Published to”哈希是你在该页顶部创建的新名称密钥对“trains”的哈希。
 
-View the new webpage using the IPNS link with your "trains" hash:
+使用你的“trains”哈希的IPNS链接查看新网页:
 
 `https://ipfs.io/ipns/QmexZbauipkBBrV8vZv8WjeYe8F7ojCm4UZXuAhxk5vFF1`
 
-Use the same procedure that you learned earlier to update this webpage, add to IPFS, and republish to IPNS.
+使用前面所学的相同步骤更新此网页，添加到IPFS中，并重新发布到IPNS中。
 
-## Explanation
+## 解释
 
-At any time you like you may generate a new name keypair to use with IPFS/IPNS work. This will allow you to work with multiple keypairs other than your primary Peer ID.
+你可以在任何时候生成一个用于IPFS/IPNS工作的新名称密钥对。这将允许你使用除了你的primary Peer ID之外的多个密钥对。
 
-## Next Steps
+## 接下来的步骤
 
-Next, proceed to the [Merkle Trees and the IPFS DAG](../ipfs-dag/) tutorial.
+接下来，进入[Merkle树和IPFS DAG](../ipfs-dag/)教程。
 
