@@ -1,2 +1,2 @@
-# Review these lessons from the Tutorial on Interacting with the Classical \(HTTP\) Web
+# 回顾一下关于与经典(HTTP) Web交互的教程中的这些课程
 
