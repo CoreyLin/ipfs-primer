@@ -1,25 +1,25 @@
-# Lesson: Modify Your Webpage and Republish to IPNS
+# 修改你的网页并重新发布到IPNS
 
-This lesson shows you how to modify the simple webpage which you previously added to IPFS, and then how to republish that webpage to IPNS.
+本课将向你展示如何修改之前添加到IPFS中的简单网页，以及如何将该网页重新发布到IPNS中。
 
-## Goals
+## 目标
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Modify any webpage that you have within IPFS and republish your new webpage to IPNS.
+* 修改你在IPFS中的任何网页并将你的新网页重新发布到IPNS中。
 
-## Steps
+## 步骤
 
-### Step 1: Modify your existing webpage
+### 步骤1:修改你现有的网页
 
-You will be working again in the `simple-webpage` directory:
+你将再次工作在`simple-webpage`目录:
 
 ```bash
 $ cd ~ (or cd %userprofile% on Windows)
 $ cd simple-webpage/
 ```
 
-Using the text editor, open the `index.html` file in the `simple-webpage` directory and copy/replace with the following text:
+使用文本编辑器，在`simple-webpage`目录中打开`index.html`文件，并复制/替换下列文本
 
 ```bash
 <!DOCTYPE html>
@@ -37,9 +37,9 @@ Using the text editor, open the `index.html` file in the `simple-webpage` direct
 </html>
 ```
 
-Save `index.html` in the `simple-webpage` directory and close the text editor.
+在`simple-webpage`目录中保存`index.html`并关闭文本编辑器。
 
-Add another level of complexity with one more HTML file in the `simple-webpage` directory. Using the text editor, copy/paste the following text:
+在`simple-webpage`目录中增加一个HTML文件，增加了另一层复杂性。使用文本编辑器，复制/粘贴以下文本:
 
 ```bash
 <!DOCTYPE html>
@@ -55,18 +55,18 @@ ever know that we have hidden this here!
 </html>
 ```
 
-Save this as `secret.html` in the `simple-webpage` directory and close the text editor.
+在`simple-webpage`目录中将其保存为`secret.html`，然后关闭文本编辑器。
 
-### Step 2: Add your updated webpage to IPFS
+### 步骤2:将你更新后的网页添加到IPFS中
 
-Run the following commands to update your webpage to IPFS:
+运行以下命令可将网页更新到IPFS:
 
 ```bash
 $ cd ..
 $ ipfs add -r simple-webpage/
 ```
 
-You should see output like the following:
+你应该看到如下所示的输出
 
 ```bash
 added Qmd286K6pohQcTKYqnS1YhWrCiS4gz7Xi34sdwMe9USZ7u simple-webpage/cat.jpg
@@ -76,44 +76,44 @@ added QmXw1gREZvLbNtpEfSCA6cP8SgwhMkbPJrkC93A97uXHqf simple-webpage
  433.27 KiB / 433.27 KiB [=============================================] 100.00%
 ```
 
-Because the content in the `simple-webpage` directory has been changed, the final hash for the directory is now different. You might notice that the hash for `cat.jpg` has not changed, as no changes were made to that file.
+因为`simple-webpage`目录中的内容已经更改，所以该目录的最终哈希现在是不同的。你可能会注意到`cat.jpg`的哈希没有更改，因为没有对该文件进行任何更改。
 
-The IPFS hash on the last line is the hash you will use to view your webpage. Note that your own hash may be different. Use your IPFS hash and open your webpage in the browser like so:
+最后一行的IPFS哈希是用于查看网页的哈希。注意，你自己的哈希可能不同。使用你的IPFS哈希并在浏览器中打开你的网页，如下所示:
 
 `https://ipfs.io/ipfs/your-webpage-hash`
 
-You should see the "Nice Kitty Update" webpage. Also try to access the `secret.html` webpage:
+你应该看到“漂亮猫咪更新”的网页。请尝试访问`secret.html`网页:
 
 `https://ipfs.io/ipfs/your-webpage-hash/secret.html`
 
-And now you can republish your updated webpage to IPNS:
+现在你可以重新发布你更新的网页到IPNS:
 
 ```bash
 $ ipfs name publish your-webpage-hash
 ```
 
-You should see output like the following:
+你应该看到如下所示的输出
 
 ```bash
 Published to QmRX....xQTp: (your peer id)
 /ipfs/QmZh....your-webpage-hash....9sjT
 ```
 
-So you can see that when you republish the updated IPFS webpage to IPNS, it will again tie your Peer ID to your updates. This is the power of being able to use IPNS to point to your updated webpage.
+所以你可以看到，当你将更新后的IPFS网页重新发布到IPNS时，它将再次将你的Peer ID绑定到你的更新。这就是能够使用IPNS指向你更新的网页的力量。
 
-View the updated webpage using the IPNS link with your Peer ID:
+使用IPNS链接，以你的Peer ID浏览更新后的网页:
 
 `https://ipfs.io/ipns/your-peer-id`
 
-and also view the `secret.html` webpage:
+浏览`secret.html`网页:
 
 `https://ipfs.io/ipns/your-peer-id/secret.html`
 
-## Explanation
+## 解释
 
-The IPFS hash of your webpage changes every time you make a update to the webpage. By using `ipfs name publish` you can republish your webpage using IPNS, which will use the same hash every time, tied to your Peer ID. In this way you can distribute your IPNS link with your Peer ID, and anyone accessing your webpage with this link will get the most current version when you republish.
+每次更新网页时，网页的IPFS哈希都会发生变化。通过使用`ipfs name publish`可以使用IPNS重新发布网页,这将每次都使用相同的哈希,绑定到你的Peer ID。这样你可以用你的Peer ID分发你的IPFS link,并且任何使用这个链接访问你的网页的人会在你再次发布后获取最新版本。
 
-## Next Steps
+## 接下来的步骤
 
-Proceed to the next lesson to learn how to [Generate and Use a New IPNS Name Keypair](generate-keypair.md)
+继续下一课，学习如何[生成和使用一个新的IPNS名称Keypair](generate-keypair.md)
 
