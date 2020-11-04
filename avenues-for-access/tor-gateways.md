@@ -1,41 +1,41 @@
-# Lesson: Access IPFS content through Tor gateways \(experimental\)
+# 课程:通过Tor网关访问IPFS内容(试验性的)
 
-## Goals
+## 目标
 
-This lesson covers accessing IPFS content through Tor gateways.
+本课程介绍了通过Tor网关访问IPFS内容。
 
-After doing this Lesson you will be able to
+学习完这节课，你就能
 
-* Use the Tor browser and a public IPFS gateway on the Tor network to access IPFS content
+* 使用Tor浏览器和Tor网络上的一个公共IPFS网关来访问IPFS内容
 
-## Steps
+## 步骤
 
-### Step 1: Download the Tor browser
+### 步骤1:下载Tor浏览器
 
-If you do not already have the Tor browser installed, download the Tor browser from the Tor project by visiting [https://www.torproject.org/projects/torbrowser.html.en](https://www.torproject.org/projects/torbrowser.html.en)
+如果你还没有安装Tor浏览器，请通过访问[https://www.torproject.org/projects/torbrowser.html.en](https://www.torproject.org/projects/torbrowser.html.en)从Tor项目下载Tor浏览器。
 
-In some countries the Tor Project website is blocked or censored and it is not possible to download Tor directly. The Tor Project also hosts a mirror of [Tor Browser Bundle on Github](https://github.com/TheTorProject/gettorbrowser).
+在一些国家，Tor项目网站被封锁或审查，无法直接下载Tor。Tor项目还在[Github上托管了Tor浏览器包](https://github.com/TheTorProject/gettorbrowser)的一个镜像。
 
-The [GetTor](https://www.torproject.org/projects/gettor) service can also be used to download Tor Browser when the Project website and mirrors are blocked.
+[GetTor](https://www.torproject.org/projects/gettor)服务也可以用来下载Tor浏览器，当项目网站和镜像被阻止时。
 
-### Step 2: Request the content you want from the IPFS-Tor gateway
+### 步骤2:从IPFS-Tor网关请求所需的内容
 
-`ipfs4uvgthshqonk.onion` is a volunteer-run IPFS Gateway on the Tor network. You will use this gateway to request IPFS content. _\(Warning: The IPFS project does not run this gateway. We cannot guarantee stability or security.\)_ There are probably many other IPFS gateways on the Tor network. You can use any of them in this way -- simply replace `ipfs4uvgthshqonk.onion` with the name of the gateway you're trying to access.
+`ipfs4uvgthshqonk.onion`是Tor网络上一个由志愿者运行的IPFS网关。你将使用此网关来请求IPFS内容。(警告:IPFS项目不运行此网关。我们不能保证稳定或安全。)在Tor网络上可能有许多其他IPFS网关。你可以通过这种方式使用它们中的任何一个 -- 只需把`ipfs4uvgthshqonk.onion`替换为你试图访问的网关名称。
 
-With the Tor browser running, enter the hash of the IPFS content you want to retrieve. This part is the same as [using any other IPFS gateway](../classical-web/other-gateways.md) -- only the address of the gateway is different: If you're using the hash of a specific snapshot of content, use the path `https://ipfs4uvgthshqonk.onion/ipfs/<your-ipfs-hash>`. If you're using an IPNS hash to get the _latest_ version of some content, use the path `https://ipfs4uvgthshqonk.onion/ipns/<your-ipns-hash>`
+在运行Tor浏览器时，输入要检索的IPFS内容的哈希。这部分与[使用任何其他IPFS网关](../classical-web/other-gateways.md)相同 -- 只是网关的地址不同:如果使用特定内容快照的哈希，请使用路径`https://ipfs4uvgthshqonk.onion/ipfs/<your-ipfs-hash>` 。如果你正在使用一个IPNS哈希来获取某些内容的最新版本，请使用路径`https://ipfs4uvgthshqonk.onion/ipns/<your-ipns-hash>` 。
 
-To view the wikipedia page we're using as an example in all of the lessons in the [Tutorial on The Myriad Ways to Access and Distribute IPFS Content](./), use these links:
+要查看我们在所有课程中使用的wikipedia页面，请使用这些链接
 
 * 2017-04-30 snapshot: [https://ipfs4uvgthshqonk.onion/ipfs/Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/Anasayfa.html](https://ipfs4uvgthshqonk.onion/ipfs/Qme2sLfe9ZMdiuWsEtajWMDzx6B7VbjzpSC2VWhtB6GoB1/wiki/Anasayfa.html)
 * latest \(IPNS\): [https://ipfs4uvgthshqonk.onion/ipns/QmQP99yW82xNKPxXLroxj1rMYMGF6Grwjj2o4svsdmGh7S/wiki/Anasayfa.html](https://ipfs4uvgthshqonk.onion/ipns/QmQP99yW82xNKPxXLroxj1rMYMGF6Grwjj2o4svsdmGh7S/wiki/Anasayfa.html)
 * latest \(DNS\): [https://ipfs4uvgthshqonk.onion/ipns/wikipedia-on-ipfs.io](https://ipfs4uvgthshqonk.onion/ipns/wikipedia-on-ipfs.io)
-* \(you can verify it works with [onion.link](https://onion.link)\)
+* \(你可以用[onion.link](https://onion.link)来验证它是否有效\)
 
-## Explanation
+## 解释
 
-This approach relies on the IPFS gateway at `ipfs4uvgthshqonk.onion` to retrieve content from the IPFS network for you. The difference with this gateway, as opposed to the gateways at ipfs.io, is that it's listening for requests directly over Tor protocol. This allows you to access the gateway anonymously.
+这种方法依赖于`ipfs4uvgthshqonk.onion`的IPFS网关为你从IPFS网络检索内容。与ipfs.io的网关相比，此网关的不同之处在于，它直接通过Tor协议监听请求。这允许你以匿名方式访问网关。
 
-## Next Steps
+## 接下来的步骤
 
-Read about how you can [configure an IPFS node to use the Tor transport](tor-transport.md) or return to the [Tutorial on The Myriad Ways to Access and Distribute IPFS Content](./) to learn about the many other ways you can use IPFS to access the same content using the same content-addressed link.
+了解如何[配置一个IPFS节点使用Tor传输](tor-transport.md)或返回[多种方式访问和分发IPFS内容的教程](./)学习许多其他的方法可以使用IPFS访问相同的内容使用相同的内含寻址链接。
 
