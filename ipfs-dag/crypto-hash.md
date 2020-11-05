@@ -1,25 +1,25 @@
-# Lesson: The Cryptographic Hash
+# 课程:密码哈希
 
-## Goals
+## 目标
 
-* Learn about cryptographic hashes, their history and characteristics
+* 了解密码哈希，它们的历史和特征
 
-## Characteristics of cryptographic hashes
+## 密码哈希的特征
 
-Cryptographic hashes are seen as long strings of alphabetic and numeric data. They are created by having data presented as input to a _cryptographic hash function_, which processes that data and writes out a hash value, or checksum. The input data may be of arbitrary length, but the ouput hash is always of a fixed length.
+密码哈希被视为字母和数字数据的长字符串。它们是通过将数据作为输入显示给一个 _密码哈希函数_ 来创建的，该函数处理数据并写出一个哈希值或校验和(checksum)。输入数据的长度可以是任意的，但输出哈希的长度总是固定的。
 
-Cryptographic hashes have a number of very important characteristics:
+密码哈希有一些非常重要的特征:
 
-* **Deterministic** - the same input message always returns exactly the same output hash
-* **Uncorrelated** - a small change in the message should generate a completely different hash
-* **Unique** - it’s not possible to generate the same hash from two different messages
-* **One-way** - it’s not possible to guess or calculate the input message from its hash
+* **确定性的** - 相同的输入消息总是返回完全相同的输出哈希
+* **不相关的** - 消息中的一个小变化应该会生成一个完全不同的哈希
+* **唯一性** - 不可能从两个不同的消息生成相同的哈希
+* **单向的** - 不可能从其哈希猜测或计算输入消息
 
-Let's examine these characteristics:
+让我们来看看这些特征:
 
-**Deterministic:** So long as you use the same cryptographic hash function, you will always get the exact same output hash value for the same input data. This allows you to verify the authenticity of the data that you might have in a file, for example. If two files have the same output hash when processed with the same cryptographic hash function, then the data can be believed to be identical.
+**确定性的:** 只要使用相同的密码哈希函数，就总是会对相同的输入数据得到完全相同的输出哈希值。例如，这允许你验证一个文件中可能有的数据的真实性。如果两个文件在使用相同的密码哈希函数处理时具有相同的输出哈希，那么可以认为数据是相同的。
 
-**Uncorrelated:** A small change to the input data should generate a completely different hash. In this way the two hashes should appear uncorrelated. You can demonstrate this for yourself on the command line:
+**不相关的:** 对输入数据的一个小更改应该生成一个完全不同的哈希。这样，这两个哈希值看起来就不相关了。你可以在命令行上演示这一点
 
 ```bash
 $ echo "Abracadabra!" | ipfs add
@@ -28,11 +28,11 @@ $ echo "abracadabra!" | ipfs add
 added QmdFyNVLCtWxyJDr9osNWMoY6CrnDQQRT8Ypa6MBpkjap3
 ```
 
-Notice the huge difference in the two hashes above. By changing the first character 'A' to lower-case 'a', the hash function generated very different output.
+请注意上面两个哈希的巨大差异。通过将第一个字符'A'更改为小写'a'，哈希函数生成了非常不同的输出。
 
-**Unique:** It's not possible to generate the same hash from two different messages. This is a characteristic of a well-built, robust cryptographic hash function. It is possible that some hash functions can derive the same hash for different messages, and this is called a _hash collision_. Hash functions have evolved over time, primarily due to vulnerabilities and weaknesses that were found. Modern cryptographic hash functions are known for _strong collision resistance_. Much work has been put into the attacking of cryptographic hash functions in particular, as they are considered key building blocks of modern cryptography.
+**唯一性:** 不可能从两个不同的消息生成相同的哈希。这是一个构建良好、健壮的密码哈希函数的特征。有些哈希函数可能对不同的消息派生出相同的哈希，这称为 _哈希碰撞_ 。哈希函数随着时间的推移而不断进化，这主要是由于发现了漏洞和弱点。现代密码哈希函数以 _抗碰撞能力强_ 而闻名。由于哈希函数被认为是现代密码学的关键构件，因此在攻击密码哈希函数方面已经做了大量工作。
 
-**One-way:** It’s not possible to guess or calculate the input message from its hash. In other words, you cannot reverse or invert a hash function to obtain the original message that it was computed from. Hence, a cryptographic hash function is considered a _one-way function_. Brute-force attack methods sometimes are used to try to find a message that matches a given hash. The use of rainbow tables \(pre-computed values from known inputs\) is another common attack.
+**单向的:** 不可能从其哈希猜测或计算输入消息。换句话说，你不能反向或反转哈希函数来获得计算它的原始消息。因此，一个密码哈希函数被认为是一个单向函数。有时使用蛮力攻击方法来尝试查找与给定哈希匹配的消息。使用彩虹表(从已知输入的预计算值)是另一种常见攻击。
 
 ## History of cryptographic hashes
 
