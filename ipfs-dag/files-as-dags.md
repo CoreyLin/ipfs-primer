@@ -1,28 +1,26 @@
-# Lesson: Turn a File into a Tree of Hashes
+# 课程:把一个文件转换为一个哈希树
 
-_Work in Progress_ _This is the content from_ [_this existing Lesson_](https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmQwAP9vFjbCtKvD8RkJdCvPHqLQjZfW7Mqbbqx18zd8j7/data/readme.md) _vaguely re-framed to fit the Lesson framework._
+## 目标
 
-## Goals
+* 解释IPFS如何将文件表示为Merkle树
+* 探索IPFS中组成一个文件的Merkle树块
 
-* Explain how IPFS represents Files as Merkle trees
-* Explore the Merkle Tree Blocks that make up a File in IPFS
+## 步骤
 
-## Steps
+### 步骤1:下载示例文件并将其添加到IPFS中
 
-### Step 1: Download the sample file and add it to IPFS
+对于本课，我们需要一个大于256kb的文件。下载此图片:[tree-in-cosmos.jpg](https://raw.githubusercontent.com/ipfs-shipyard/ipfs-primer/master/samples/tree-in-cosmos.jpg) (863kb)
 
-For this lesson we need a file that's larger than 256kb. Download this image: [tree-in-cosmos.jpg](https://raw.githubusercontent.com/ipfs-shipyard/ipfs-primer/master/samples/tree-in-cosmos.jpg) \(863kb\)
-
-Save it as "tree-in-cosmos.jpg" and then add it to IPFS
+保存为“tree-in-cosmos.jpg”，然后添加到IPFS中
 
 ```bash
 $ ipfs add tree-in-cosmos.jpg
 added QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9
 ```
 
-### Step 2:
+### 步骤2:
 
-Let's look at how IPFS represented that file internally by passing the content's hash to the `ipfs ls` command:
+让我们看看IPFS是如何通过将内容的哈希传递给`ipfs ls`命令来在内部表示该文件的:
 
 ```text
 ipfs ls -v QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9
@@ -33,69 +31,68 @@ QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 262158
 QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa 76151
 ```
 
-This returned a bunch of hashes. That's different from what happened in the [lesson on adding file content to ipfs](../files-on-ipfs/add-and-retrieve-file-content.md), where you only got one hash back. This is because ipfs breaks files into content _blocks_ that are each about 256kb and then uses a **hash tree** to represent how they fit together.
+这将返回一串哈希。这与[将文件内容添加到ipfs的课程](../files-on-ipfs/add-and-retrieve-file-content.md)所发生的情况不同，在那一课中，你只得到一个哈希返回。这是因为ipfs将文件分解为每个约256kb的内容块，然后使用一个 **哈希树** 表示它们如何组合在一起。
 
-This is one example of how IPFS uses hash trees, also known as **Merkle DAGs**, to represent information.
+这是IPFS如何使用哈希树(也称为 **Merkle DAGs** )来表示信息的一个例子。
 
- This kind of hash tree is formally known as a **Merkle DAG** -- this is because the technical term for this type of data structure is a Directed Acyclic Graph, or DAG, and a mathematician named Ralph Merkle invented them. Hence: Merkle DAG, or merkledag.
+这种哈希树的正式名称是 **Merkle DAG** ——这是因为这种类型的数据结构的技术术语是一个有向无环图(Directed Acyclic Graph,DAG)，是一位名叫Ralph Merkle的数学家发明的。因此:Merkle DAG，或merkledag。
 
 ![](../.gitbook/assets/hash-tree.png)
 
-In this case, the hash for our file `QmWNj1pTS...` is the hash of the **root block** in a DAG that contains 4 sub-blocks. The output from `ipfs ls` lists those sub-blocks and their size.
+在本例中，文件`QmWNj1pTS...`的哈希是一个DAG中包含4个子块的 **根块** 的哈希。`ipfs ls`的输出列出了这些子块及其大小。
 
-Sometimes sub-blocks have sub-blocks of their own. That's when a Merkle DAG starts looking like a tree. This diagram shows a Merkle DAG with three layers of sub-blocks.:
+有时子块有它们自己的子块。这时，一个Merkle DAG看起来就像一棵树。这个图显示了一个有三层子块的一个Merkle DAG。
 
 ![Diagram of a Merkle DAG with 3 layers of sub-blocks \(looks like an upside-down tree\)](https://camo.githubusercontent.com/1aba273a55fdbbf8cc9acb3b07ce0fc64e2382af/68747470733a2f2f75706c6f61642e77696b696d656469612e6f72672f77696b6970656469612f636f6d6d6f6e732f7468756d622f392f39352f486173685f547265652e7376672f33303070782d486173685f547265652e7376672e706e67)
 
-_Do you think it looks like an upside-down tree?_
+_你觉得它看起来像一棵倒立的树吗？_
 
-### Step 3: Explore The Hash Tree
+### 步骤3:探索哈希树
 
-The `ipfs refs` and `ipfs object links` commands are other ways to get the listing of sub-blocks in the tree.
+`ipfs refs`和`ipfs object links`命令是获取树中子块列表的其他方法。
 
-Try these:
+试试这些:
 
 ```bash
 $ ipfs refs QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9
 ipfs object links -v QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9
 ```
 
-If the sub-blocks had more sub-blocks within them, you would be able to use these commands to get the hashes of those sub-sub-blocks. For example:
+如果子块中有更多的子块，你就可以使用这些命令来获得这些子块的子块的哈希。例如
 
 ```bash
 $ ipfs object links -v QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh
 ```
 
-But this doesn't return anything because there aren't sub-blocks within `QmPHPs1P...`
+但这没有返回任何东西，因为没有子块在`QmPHPs1P...`中
 
-### Step 4: Read the content back out of IPFS
+### 步骤4:从IPFS中读取内容
 
-If you use `ipfs cat` to read the content back out of ipfs, it handles re-assembling the file from the hash tree. For example, the following command will read our sample image out of ipfs and write the content into a new file called "copy-of-tree-in-cosmos.jpg". Run the command and then open the new file to confirm that the image is still intact.
+如果使用`ipfs cat`从ipfs中读取内容，它将处理从哈希树重新组装这个文件。例如，下面的命令将从ipfs中读取示例图像，并将内容写入一个名为"copy-of-tree-in-cosmos.jpg"的新文件中。运行该命令，然后打开新文件，以确认图像仍然完好无损。
 
 ```bash
 $ ipfs cat QmWNj1pTSjbauDHpdyg5HQ26vYcNWnubg1JehmwAE9NnU9 > copy-of-tree-in-cosmos.jpg
 ```
 
-### Step 5: Examine the blocks individually
+### 步骤5:分别检查各个块
 
-Use these commands to examine the blocks in the hash tree:
+使用这些命令检查哈希树中的块:
 
-* `ipfs block stat` will tell you the exact size of a given block \(without its
+* `ipfs block stat`将告诉你一个给定块的确切大小(不包括它的子块)
 
-  children\)
+* `ipfs refs`将告诉你该块的所有子块。对于在一个给定对象的每个子块上运行脚本，这是一个更合适的命令。
 
-* `ipfs refs` will tell you all the children of that block. This is a more suitable command for scripting something to run on each child block of a given object.
-* `ipfs ls` or `ipfs object links` will show you all children and their sizes.
+* `ipfs ls`或`ipfs object links`将显示所有子对象及其大小。
 
-### Step 6: Read the Contents of a sub-block
+### 步骤6:读取一个子块的内容
 
-In some cases you want to retrieve sub-blocks from a tree. You can use `ipfs cat` to do that. You can test that with the sub-bocks from our image.
+在某些情况下，你希望从一颗树中检索子块。你可以使用`ipfs cat`来实现这一点。你可以用我们图像中的子bocks来测试。
 
 ```bash
 $ ipfs cat QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh
 ```
 
-The output will look similar to this because it's image content, not text:
+输出将类似于此，因为它是图像内容，而不是文本:
 
 ```text
 <FF><D8><FF><E0>^@^PJFIF^@^A^A^@^@^A^@^A^@^@<FF><FE>^@;CREATOR: gd-jpeg v1.0 (using IJG JPEG v80), quality = 95
@@ -107,29 +104,29 @@ $4?%?&'()*56789:CDEFGHIJSTUVWXYZcdefghijstuvwxyz????????????????????????????????
 ,?y?ՠ|ѿiMgᦧk?_?WN??W????F!%T 8?W???I$uZ?????K?\?olng?H|?????@?#8?En?1??;
 ```
 
-### Step 7: Assemble the Pieces Manually
+### 步骤7：手工组装这些块
 
-`ipfs cat` allows you read the contents of each block and it also allows you to _concatenate_ many inputs. This means we can use `ipfs cat` to re-build our image by passing the hashes of all our sub-blocks into that command.
+`ipfs cat`允许你读取每个块的内容，还允许你 _连接_ 许多输入。这意味着我们可以使用`ipfs cat`通过将所有子块的哈希传递到该命令来重新构建我们的图像。
 
 ```bash
 ipfs cat QmPHPs1P3JaWi53q5qqiNauPhiTqa3S1mbszcVPHKGNWRh QmPCuqUTNb21VDqtp5b8VsNzKEMtUsZCCVsEUBrjhERRSR QmS7zrNSHEt5GpcaKrwdbnv1nckBreUxWnLaV4qivjaNr3 QmQQhY1syuqo9Sq6wLFAupHBEeqfB8jNnzYUSgZGARJrYa > manually-rebuilt-tree-in-cosmos.jpg
 ```
 
-## Bonus Steps
+## 额外的步骤
 
-Some things to try:
+有些事情可以尝试:
 
-* Write a script that uses `ipfs refs` and `ipfs cat` to rebuild a file from its root hash
+* 编写一个脚本，使用`ipfs ref`和`ipfs cat`从一个文件的根哈希重新构建该文件
 
-## Explanation
+## 解释
 
-Merkle DAGs are the core concept of IPFS. Merkle DAGs are also at the core of technologies like git, bitcoin and dat.
+Merkle DAGs是IPFS的核心概念。Merkle DAGs也是git、比特币和dat等技术的核心。
 
-Hash trees are made up of _content blocks_ that are each identified by their cryptographic hash. You can reference any of these blocks using its hash, which allows you to build trees of blocks that reference their "sub blocks" using the hashes of those sub blocks.
+哈希树由 _内容块_ 组成，每个内容块由其加密哈希标识。你可以使用它的哈希来引用这些块中的任何一个，这允许你使用这些子块的哈希来构建引用它们的“子块”的块树。
 
-The `ipfs add` command will create a Merkle DAG out of the data in the files you specify. It follows the unixfs data format when doing this. What this means is that your files are broken down into blocks, and then arranged in a tree-like structure using 'link nodes' to tie them together. A given file's 'hash' is actually the hash of the root \(uppermost\) node in the DAG. for a given DAG, you can easily view the sub-blocks under it with `ipfs ls`.
+`ipfs add`命令将从你指定的文件中的数据创建一个Merkle DAG。在执行此操作时，它遵循unixfs数据格式。这意味着你的文件被分解成多个块，然后用“链接节点link nodes”将它们捆绑在一起，排列成类似一颗树的结构。一个给定文件的“哈希”实际上是DAG中根(最上)节点的哈希。对于一个给定的DAG，可以使用`ipfs ls`轻松查看它下面的子块。
 
-## Next Steps
+## 接下来的步骤
 
-Next, examine [The Cryptographic Hash](crypto-hash.md)
+接下来，学习[加密哈希](crypto-hash.md)
 
