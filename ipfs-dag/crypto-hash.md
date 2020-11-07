@@ -34,19 +34,19 @@ added QmdFyNVLCtWxyJDr9osNWMoY6CrnDQQRT8Ypa6MBpkjap3
 
 **单向的:** 不可能从其哈希猜测或计算输入消息。换句话说，你不能反向或反转哈希函数来获得计算它的原始消息。因此，一个密码哈希函数被认为是一个单向函数。有时使用蛮力攻击方法来尝试查找与给定哈希匹配的消息。使用彩虹表(从已知输入的预计算值)是另一种常见攻击。
 
-## History of cryptographic hashes
+## 密码哈希的历史
 
-**MD5:** Designed by Ron Rivest in 1991 to replace an earlier hash function MD4. "MD" stands for "Message Digest". Produces a hash of 128 bits \(16 bytes\). Suitable for non-cryptographic uses, such as basic data integrity. Collisions against MD5 can be calculated within seconds which makes the algorithm unsuitable as a cryptographic hash.
+**MD5:** 由Ron Rivest在1991年设计，用来取代早期的哈希函数MD4。“MD”代表“消息摘要Message Digest”。产生128位(16字节)的哈希。适合于非加密用途，例如基本数据完整性。对MD5的冲突可以在数秒内计算出来，这使得该算法不适合用作一个密码哈希。
 
-**SHA-1:** Developed as part of the U.S. Government's Capstone project. The original specification of the algorithm was published in 1993. "SHA" stands for "Secure Hash Algorithm". Produces a hash of 160 bits \(20 bytes\). Collisions against SHA-1 have been produced and this hash function should be considered broken.
+**SHA-1:** 作为美国政府Capstone项目的一部分。该算法的原始规范发表于1993年。“SHA”代表“安全哈希算法Secure Hash Algorithm”。产生160位(20字节)的哈希。已经产生了与SHA-1的碰撞，这个哈希函数应该被认为被破坏了。
 
-**SHA-2:** Designed by the United States National Security Agency \(NSA\), first published in 2001. SHA-2 basically consists of two hash algorithms: SHA-256 and SHA-512. SHA-512 is more secure than SHA-256. There are a number of variants of both algorithms. SHA-256 produces a hash of 256 bits \(32 bytes\) and SHA-512 produces a hash of 512 bits \(64 bytes\).
+**SHA-2:** 由美国国家安全局(NSA)设计，首次发布于2001年。SHA-2基本上由两种哈希算法组成:SHA-256和SHA-512。SHA-512比SHA-256更安全。这两种算法都有许多变体。SHA-256产生256位(32字节)的哈希，而SHA-512产生512位(64字节)的哈希。
 
-**SHA-3:** Released by NIST in 2015. SHA-3 is a subset of the broader cryptographic primitive family Keccak. SHA-3 has the same output sizes as SHA-2: 224, 256, 384 and 512 bits.
+**SHA-3:** 由NIST于2015年发布。SHA-3是更广泛的密码原语家族Keccak的子集。SHA-3具有与SHA-2相同的输出大小:224、256、384和512位。
 
-[Read more on Cryptographic Hash Functions](https://en.wikipedia.org/wiki/Cryptographic_hash_function)
+[阅读有关加密哈希函数的更多信息](https://en.wikipedia.org/wiki/Cryptographic_hash_function)
 
-## Next Steps
+## 接下来的步骤
 
-Next, learn how to [Build a Tree of Data in IPFS Using Cryptographic Hashes to Link the Pieces \(a Merkle DAG\)](blocks-from-scratch.md)
+接下来，学习如何 [在IPFS中使用密码哈希来连接数据块构建一颗数据树(Merkle DAG)](blocks-from-scratch.md)
 
