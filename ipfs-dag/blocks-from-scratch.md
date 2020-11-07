@@ -1,24 +1,22 @@
-# Lesson: Build a Tree of Data in IPFS Using Cryptographic Hashes to Link the Pieces \(a Merkle DAG\)
+# 课程:在IPFS中使用加密哈希来连接片段(一个Merkle DAG)构建一颗数据树
 
-## Lesson: Creating a Merkle Tree from Scratch
+## 课程:从零开始创建一颗Merkle树
 
-_Work in Progress_ _This is the content from_ [_this existing Lesson_](https://ipfs.io/ipfs/QmTkzDwWqPbnAh5YiV5VwcTLnGdwSNsNTn2aDxdXBFca7D/example#/ipfs/QmQwAP9vFjbCtKvD8RkJdCvPHqLQjZfW7Mqbbqx18zd8j7/data/readme.md) _vaguely re-framed to fit the Lesson framework._
+### 目标
 
-### Goals
+* 在IPFS中使用密码哈希来连接数据块构建一颗数据树(Merkle DAG)
 
-* Build a tree of data in IPFS using cryptographic hashes to link the pieces \(a Merkle DAG\)
+### 解释: 块 vs 对象
 
-### Explanation: Blocks vs Objects
+在ipfs中，一个块指的是单个数据单元，由其键(哈希)标识。一个块可以是任何类型的数据，并不一定具有与之关联的任何类型的格式。另一方面，一个对象指的是遵循merkledag protobuf数据格式的一个块。可以通过ipfs object命令对其进行解析和操作。任何给定的哈希都可以表示一个对象或一个块。
 
-In ipfs, a block refers to a single unit of data, identified by its key \(hash\). a block can be any sort of data, and does not necessarily have any sort of format associated with it. an object, on the other hand, refers to a block that follows the merkledag protobuf data format. it can be parsed and manipulated via the `ipfs object` command. any given hash may represent an object or a block.
+## 步骤
 
-## Steps
+### 步骤1
 
-### Step 1
+创建你自己的块很容易!简单地把你的数据放在一个文件，然后对它运行`ipfs block put <yourfile>`，或者你可以将文件数据传输到`ipfs block put`中，就像这样
 
-Creating your own blocks is easy! simply put your data in a file and run `ipfs block put <yourfile>` on it, or you can pipe your filedata into `ipfs block put`, like so:
-
-### Step 2
+### 步骤2
 
 ```text
 $ echo "This is some data" | ipfs block put
@@ -27,5 +25,5 @@ $ ipfs block get QmfQ5QAjvg4GtA3wg3adpnDJug8ktA1BxurVqBD8rtgVjM
 This is some data
 ```
 
-Note: When making your own block data, you wont be able to read the data with `ipfs cat`, this is because you are inputting raw data without the unixfs data format. To read raw blocks use `ipfs block get` as shown in the example.
+注意:在生成你自己的块数据时，你无法使用`ipfs cat`读取数据，这是因为你输入的原始数据没有使用unixfs数据格式。要读取原始块，请使用如示例所示的`ipfs block get`。
 
